@@ -1,44 +1,104 @@
 import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
+import { BUSINESS } from './SchemaMarkup';
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-brand-surface)] border-t border-[var(--color-brand-border)] py-12 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" alt="Albright Logo" className="w-10 h-10 object-contain" />
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-xl leading-none tracking-wide text-white">ALBRIGHT</span>
-                <span className="text-[0.6rem] font-sans tracking-[0.2em] uppercase text-zinc-400 mt-1">Digital Solutions</span>
+    <footer className="relative overflow-hidden mt-auto">
+      {/* Top accent line */}
+      <div className="line-accent w-full" />
+
+      <div className="relative bg-[var(--color-brand-surface)]/80 py-20">
+        {/* Background glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-accent)]/[0.03] rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Main grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+
+            {/* Brand column */}
+            <div className="md:col-span-5">
+              <Link to="/" className="inline-block mb-6 group">
+                <img
+                  src="/Albright_Digital_Solutions_Logo.png"
+                  alt="Albright Digital Solutions Logo"
+                  className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </Link>
+              <p className="text-sm text-zinc-400 max-w-sm leading-relaxed mb-6">
+                {BUSINESS.description}
+              </p>
+              <div className="space-y-1 text-xs text-zinc-500">
+                <p>{BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}</p>
+                <p>
+                  <a href={`tel:${BUSINESS.phone}`} className="hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>
+                  {' · '}
+                  <a href={`mailto:${BUSINESS.email}`} className="hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.email}</a>
+                </p>
               </div>
-            </Link>
-            <p className="text-sm text-zinc-400 max-w-sm">
-              Lighting the path for your business with comprehensive digital infrastructure and creative assets.
+            </div>
+
+            {/* Services */}
+            <div className="md:col-span-3">
+              <h3 className="text-[10px] font-bold text-[var(--color-brand-accent)] uppercase tracking-[0.25em] mb-6">Services</h3>
+              <ul className="space-y-3">
+                {[
+                  { name: 'AI Agents & Automation', path: '/services/ai-automation' },
+                  { name: 'Web Design & Dev', path: '/services/web-design' },
+                  { name: 'Video Editing', path: '/services/video-editing' },
+                  { name: 'Graphic Design', path: '/contact' },
+                ].map((link) => (
+                  <li key={link.name}>
+                    <Link to={link.path} className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group">
+                      {link.name}
+                      <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[var(--color-brand-accent)]" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div className="md:col-span-2">
+              <h3 className="text-[10px] font-bold text-[var(--color-brand-accent)] uppercase tracking-[0.25em] mb-6">Company</h3>
+              <ul className="space-y-3">
+                {[
+                  { name: 'About Us', path: '/about' },
+                  { name: 'Contact', path: '/contact' },
+                  { name: 'AI Copywriter', path: '/copywriter' },
+                ].map((link) => (
+                  <li key={link.name}>
+                    <Link to={link.path} className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group">
+                      {link.name}
+                      <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[var(--color-brand-accent)]" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Service Areas */}
+            <div className="md:col-span-2">
+              <h3 className="text-[10px] font-bold text-[var(--color-brand-accent)] uppercase tracking-[0.25em] mb-6">Service Areas</h3>
+              <ul className="space-y-2 text-sm text-zinc-500">
+                <li>Austin</li>
+                <li>Round Rock</li>
+                <li>Cedar Park</li>
+                <li>Georgetown</li>
+                <li>San Marcos</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="mt-16 pt-8 border-t border-[var(--color-brand-border)]/50 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-zinc-600">
+              &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
+            </p>
+            <p className="text-xs text-zinc-700">
+              Serving Austin, Round Rock, Cedar Park, Georgetown, San Marcos, and Central Texas.
             </p>
           </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Services</h3>
-            <ul className="space-y-2 text-sm text-zinc-400">
-              <li><Link to="/services" className="hover:text-[var(--color-brand-accent)] transition-colors">AI Agents</Link></li>
-              <li><Link to="/services" className="hover:text-[var(--color-brand-accent)] transition-colors">Website Design</Link></li>
-              <li><Link to="/services" className="hover:text-[var(--color-brand-accent)] transition-colors">Video Editing</Link></li>
-              <li><Link to="/services" className="hover:text-[var(--color-brand-accent)] transition-colors">Graphic Design</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-zinc-400">
-              <li><Link to="/about" className="hover:text-[var(--color-brand-accent)] transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-[var(--color-brand-accent)] transition-colors">Contact</Link></li>
-              <li><Link to="/copywriter" className="hover:text-[var(--color-brand-accent)] transition-colors">AI Copywriter (Beta)</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-[var(--color-brand-border)] mt-12 pt-8 text-center text-xs text-zinc-500">
-          <p>&copy; {new Date().getFullYear()} Albright Digital Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>
