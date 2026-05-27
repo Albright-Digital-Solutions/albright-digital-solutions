@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Code, Video, Palette, Bot, Star, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import SchemaMarkup, { localBusinessSchema, BUSINESS } from '../components/SchemaMarkup';
+import LionZoomTransition from '../components/LionZoomTransition';
 
 function useCardSpotlight(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
@@ -34,6 +35,11 @@ export default function Home() {
   return (
     <div className="w-full">
       <SchemaMarkup schema={localBusinessSchema()} />
+
+      {/* ════════════════════════════════════════════════════════════
+          LION ZOOM TRANSITION — Scroll to zoom between the lion's legs
+          ════════════════════════════════════════════════════════════ */}
+      <LionZoomTransition />
 
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION
@@ -99,14 +105,9 @@ export default function Home() {
               <ChevronRight size={18} />
             </Link>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="reveal reveal-delay-6 mt-24 flex flex-col items-center gap-2 text-zinc-600">
-            <span className="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
-            <div className="w-px h-12 bg-gradient-to-b from-[var(--color-brand-accent)]/40 to-transparent animate-pulse" />
-          </div>
         </div>
       </section>
+
 
       {/* ════════════════════════════════════════════════════════════
           TRUST BAR — Horizontal Marquee
