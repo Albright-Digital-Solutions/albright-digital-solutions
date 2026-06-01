@@ -1,0 +1,8 @@
+{
+  "name": "Albright AI Copywriter",
+  "description": "An AI-powered copywriting and brand strategy assistant for Albright Digital Solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
