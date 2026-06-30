@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
-import Copywriter from './pages/Copywriter';
 import AiAutomation from './pages/services/AiAutomation';
 import WebDesign from './pages/services/WebDesign';
 import VideoEditing from './pages/services/VideoEditing';
@@ -64,7 +63,7 @@ export default function App() {
             <Route path="/services/ai-training" element={<AiTraining />} />
             <Route path="/services/performance-tuning" element={<PerformanceTuning />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/copywriter" element={<Copywriter />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />

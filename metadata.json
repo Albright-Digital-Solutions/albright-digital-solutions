@@ -1,8 +1,6 @@
 {
-  "name": "Albright AI Copywriter",
-  "description": "An AI-powered copywriting and brand strategy assistant for Albright Digital Solutions.",
+  "name": "Albright Digital Solutions",
+  "description": "Digital infrastructure, AI automation, and creative services for businesses in Central Texas.",
   "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "majorCapabilities": []
 }

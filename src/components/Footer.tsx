@@ -65,7 +65,6 @@ export default function Footer() {
                 {[
                   { name: 'About Us', path: '/about' },
                   { name: 'Contact', path: '/contact' },
-                  { name: 'AI Copywriter', path: '/copywriter' },
                 ].map((link) => (
                   <li key={link.name}>
                     <Link to={link.path} className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group">
