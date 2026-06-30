@@ -88,27 +88,32 @@ function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
-        <div className="reveal reveal-delay-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-10 border border-[var(--color-brand-accent)]/15 bg-[var(--color-brand-accent)]/[0.04]">
+        <div className="reveal reveal-delay-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-6 border border-[var(--color-brand-accent)]/15 bg-[var(--color-brand-accent)]/[0.04]">
           <Sparkles size={14} className="text-[var(--color-brand-accent)]" />
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent-light)]">Austin's Premier Digital Agency</span>
           <Sparkles size={14} className="text-[var(--color-brand-accent)]" />
         </div>
 
+        {/* Brand name */}
+        <p className="reveal reveal-delay-2 mb-9 font-serif italic text-3xl sm:text-4xl md:text-5xl tracking-[0.04em] text-[var(--color-brand-accent-light)] text-glow">
+          {BUSINESS.name}
+        </p>
+
         {/* H1 */}
-        <h1 className="reveal reveal-delay-2 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-white tracking-tight leading-[0.9] mb-8">
+        <h1 className="reveal reveal-delay-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-white tracking-tight leading-[0.9] mb-8">
           We Make<br />
           Brands{' '}
           <span className="text-shimmer">Shine</span>
         </h1>
 
         {/* Sub */}
-        <p className="reveal reveal-delay-3 mt-4 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
+        <p className="reveal reveal-delay-4 mt-4 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
           <strong className="text-white font-medium">{BUSINESS.name}</strong> builds world-class websites, deploys intelligent AI agents, and produces premium creative assets for businesses across{' '}
           <span className="text-[var(--color-brand-accent-light)]">Austin, Texas</span>.
         </p>
 
         {/* CTA */}
-        <div className="reveal reveal-delay-4 mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="reveal reveal-delay-5 mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             to="/contact"
             className="btn-glow px-10 py-5 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-xl text-lg flex items-center gap-3"
