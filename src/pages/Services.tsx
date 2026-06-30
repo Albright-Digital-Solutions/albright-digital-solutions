@@ -43,7 +43,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="svc-page">
+    <div className="svc-page svc-page--index">
       <SchemaMarkup schema={schemas} />
 
       {/* ── Hero ── */}
@@ -74,8 +74,9 @@ export default function Services() {
                     width: '3.5rem',
                     height: '3.5rem',
                     borderRadius: '0.5rem',
-                    backgroundColor: '#0f172a',
-                    color: '#ffffff',
+                    backgroundColor: 'var(--color-brand-surface)',
+                    border: '1px solid rgba(229, 159, 43, 0.15)',
+                    color: 'var(--color-brand-accent)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -98,7 +99,7 @@ export default function Services() {
                           gap: '0.5rem',
                           fontWeight: 700,
                           fontSize: '0.9375rem',
-                          color: '#1e3a5f',
+                          color: 'var(--color-brand-accent)',
                           textDecoration: 'none',
                         }}
                       >
@@ -107,7 +108,7 @@ export default function Services() {
                       <span style={{
                         fontSize: '0.8125rem',
                         fontWeight: 600,
-                        color: '#64748b',
+                        color: '#71717a',
                         textTransform: 'uppercase',
                         letterSpacing: '0.05em',
                       }}>

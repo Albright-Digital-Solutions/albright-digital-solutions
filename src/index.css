@@ -864,3 +864,71 @@ body {
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
+
+/* ── Services index: align with the site's black, charcoal, and gold palette ── */
+.svc-page--index {
+  background-color: var(--color-brand-dark);
+  color: #e8e4de;
+}
+
+.svc-page--index .svc-hero {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(229, 159, 43, 0.08), transparent 36%),
+    #000000;
+  border-bottom-color: rgba(229, 159, 43, 0.35);
+}
+
+.svc-page--index .svc-eyebrow,
+.svc-page--index .svc-hero .svc-eyebrow {
+  color: var(--color-brand-accent);
+}
+
+.svc-page--index .svc-hero .svc-heading,
+.svc-page--index .svc-subheading,
+.svc-page--index .svc-cta .svc-heading {
+  color: #ffffff;
+}
+
+.svc-page--index .svc-body,
+.svc-page--index .svc-hero .svc-body,
+.svc-page--index .svc-cta .svc-body {
+  color: #a1a1aa;
+}
+
+.svc-page--index .svc-section {
+  background:
+    radial-gradient(circle at 85% 25%, rgba(179, 115, 20, 0.05), transparent 30%),
+    var(--color-brand-dark);
+}
+
+.svc-page--index .svc-divider {
+  background-color: var(--color-brand-border);
+}
+
+.svc-page--index .svc-cta {
+  background-color: var(--color-brand-surface);
+  border-top: 1px solid rgba(229, 159, 43, 0.12);
+}
+
+.svc-page--index .svc-cta-contact {
+  color: #71717a;
+}
+
+.svc-page--index .svc-cta-contact a {
+  color: var(--color-brand-accent-light);
+}
+
+.svc-page--index .svc-cta-contact a:hover {
+  color: #ffffff;
+}
+
+.svc-page--index .svc-cta-btn--primary {
+  background-color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+  color: #18181b;
+}
+
+.svc-page--index .svc-cta-btn--primary:hover {
+  background-color: var(--color-brand-accent-light);
+  border-color: var(--color-brand-accent-light);
+}
