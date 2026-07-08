@@ -553,6 +553,9 @@ body {
 .quote-actions button { border: 0; border-radius: .65rem; background: var(--color-brand-accent); color: #0a0a09; font-weight: 900; font-size: .75rem; padding: .78rem; display: flex; justify-content: center; align-items: center; gap: .4rem; cursor: pointer; }
 .quote-actions .quote-print { background: rgba(255, 255, 255, .08); color: #f5efe5; border: 1px solid rgba(255, 210, 117, .12); }
 .quote-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.quote-submit-message { margin-top: .75rem; border-radius: .65rem; padding: .75rem .85rem; font-size: .74rem; line-height: 1.45; border: 1px solid rgba(255, 210, 117, .14); background: rgba(255, 255, 255, .035); color: #d8d0c4; }
+.quote-submit-message--success { border-color: rgba(34, 197, 94, .28); background: rgba(34, 197, 94, .08); color: #bbf7d0; }
+.quote-submit-message--error { border-color: rgba(248, 113, 113, .32); background: rgba(248, 113, 113, .08); color: #fecaca; }
 .print-only { display: none; }
 
 @media (max-width: 900px) {

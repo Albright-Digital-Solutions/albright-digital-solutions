@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Check, ChevronDown, FileText, Mail, Plus, Printer, Trash2 } from 'lucide-react';
+import { Check, ChevronDown, FileText, Plus, Printer, Send, Trash2 } from 'lucide-react';
 import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
 import { money, quoteCatalog } from '../data/quoteCatalog';
 
@@ -17,15 +17,18 @@ export default function QuoteBuilder() {
     email: '',
     phone: '',
     industry: '',
+    yearsInBusiness: '',
     website: '',
     location: '',
     teamSize: '',
     customerType: '',
     timeline: '',
+    budgetRange: '',
     currentSetup: '',
     goals: '',
     notes: '',
   });
+  const [submitState, setSubmitState] = useState<{ type: 'idle' | 'success' | 'error'; message: string }>({ type: 'idle', message: '' });
   const categories = [...new Set(quoteCatalog.map((item) => item.category))];
   const selectedItems = quoteCatalog.filter((item) => selected.includes(item.id));
   const oneTime = useMemo(() => selectedItems.reduce((sum, item) => sum + (item.oneTime || 0), 0), [selectedItems]);
@@ -36,28 +39,37 @@ export default function QuoteBuilder() {
     ? current.filter((item) => item !== id)
     : [...current, id]);
 
-  const emailQuote = () => {
-    const lines = selectedItems.map((item) => `- ${item.name}${item.oneTime ? ` | ${money(item.oneTime)} one-time` : ''}${item.monthly ? ` | ${money(item.monthly)}/month` : ''}`);
-    const body = [
-      `Custom quote request ${quoteNumber}`,
-      `Name: ${client.name}`,
-      `Business: ${client.business}`,
-      `Email: ${client.email}`,
-      `Phone: ${client.phone}`,
-      `Industry / business type: ${client.industry}`,
-      `Website / profile link: ${client.website}`,
-      `Service area: ${client.location}`,
-      `Team size: ${client.teamSize}`,
-      `Customer type: ${client.customerType}`,
-      `Timeline: ${client.timeline}`,
-      `Current digital setup: ${client.currentSetup}`,
-      `Main goals: ${client.goals}`,
-      '', 'Selected services:', ...lines,
-      '', `Estimated one-time total: ${money(oneTime)}`,
-      `Estimated monthly total: ${money(monthly)}/month`,
-      '', `Additional notes: ${client.notes}`,
-    ].join('\n');
-    window.location.href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(`Custom quote request — ${client.business || client.name || quoteNumber}`)}&body=${encodeURIComponent(body)}`;
+  const submitQuote = async () => {
+    if (!selectedItems.length) return;
+    setSubmitState({ type: 'idle', message: 'Sending your request…' });
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quoteNumber,
+          quoteDate: dateFormat.format(quoteDate),
+          validUntil: dateFormat.format(validUntil),
+          client,
+          selectedItems,
+          totals: { oneTime, monthly },
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Unable to submit the quote request right now.');
+      }
+
+      setSubmitState({ type: 'success', message: 'Quote request sent. We will review it and follow up shortly.' });
+    } catch (error) {
+      setSubmitState({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Unable to submit the quote request right now.',
+      });
+    }
   };
 
   return (
@@ -126,6 +138,16 @@ export default function QuoteBuilder() {
               <span>Business snapshot</span>
               <div className="quote-form-grid">
                 <label>What type of business is it?<input aria-label="Business type" placeholder="Roofing, med spa, restaurant, consulting…" value={client.industry} onChange={(e) => setClient({ ...client, industry: e.target.value })} /></label>
+                <label>Years in business
+                  <select aria-label="Years in business" value={client.yearsInBusiness} onChange={(e) => setClient({ ...client, yearsInBusiness: e.target.value })}>
+                    <option value="">Select one</option>
+                    <option>Not open yet</option>
+                    <option>Less than 1 year</option>
+                    <option>1–3 years</option>
+                    <option>4–10 years</option>
+                    <option>10+ years</option>
+                  </select>
+                </label>
                 <label>Website or Google Profile link<input aria-label="Website or profile link" placeholder="https://..." value={client.website} onChange={(e) => setClient({ ...client, website: e.target.value })} /></label>
                 <label>Primary city / service area<input aria-label="Primary service area" placeholder="Austin, Round Rock, Central Texas…" value={client.location} onChange={(e) => setClient({ ...client, location: e.target.value })} /></label>
                 <label>Team size
@@ -156,6 +178,17 @@ export default function QuoteBuilder() {
                     <option>Planning ahead</option>
                   </select>
                 </label>
+                <label>Monthly budget comfort range
+                  <select aria-label="Monthly budget comfort range" value={client.budgetRange} onChange={(e) => setClient({ ...client, budgetRange: e.target.value })}>
+                    <option value="">Select one</option>
+                    <option>Under $500/month</option>
+                    <option>$500–$1,000/month</option>
+                    <option>$1,000–$2,500/month</option>
+                    <option>$2,500+/month</option>
+                    <option>Project-only for now</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </label>
               </div>
             </div>
 
@@ -167,7 +200,7 @@ export default function QuoteBuilder() {
           </div>
           {(client.name || client.business || client.email || client.phone || client.industry || client.location || client.teamSize) && <div className="quote-client-print print-only">
             <strong>{client.business || client.name}</strong><br />{client.name}{client.business && client.name ? <br /> : null}{client.email}<br />{client.phone}
-            <br />{client.industry}{client.location ? ` · ${client.location}` : ''}{client.teamSize ? ` · ${client.teamSize}` : ''}
+            <br />{client.industry}{client.yearsInBusiness ? ` · ${client.yearsInBusiness}` : ''}{client.location ? ` · ${client.location}` : ''}{client.teamSize ? ` · ${client.teamSize}` : ''}
           </div>}
 
           {selectedItems.length === 0 ? <div className="quote-empty"><Plus size={28} /><p>Add services to generate your estimate.</p></div> : <>
@@ -196,9 +229,10 @@ export default function QuoteBuilder() {
             <p>This is a good-faith preliminary estimate valid for 30 days, not a final contract. Final pricing is confirmed after scope and account review. Taxes, advertising spend and third-party fees are excluded. Search rankings, platform verification, reinstatement and advertising results cannot be guaranteed. Recurring services require a three-month initial commitment unless otherwise stated.</p>
           </div>
           <div className="quote-actions no-print">
-            <button onClick={emailQuote} disabled={!selectedItems.length}><Mail size={17} /> Send for review</button>
+            <button onClick={submitQuote} disabled={!selectedItems.length || submitState.message === 'Sending your request…'}><Send size={17} /> {submitState.message === 'Sending your request…' ? 'Sending…' : 'Submit request'}</button>
             <button className="quote-print" onClick={() => window.print()} disabled={!selectedItems.length}><Printer size={17} /> Print / Save PDF</button>
           </div>
+          {submitState.message && <p className={`quote-submit-message quote-submit-message--${submitState.type}`}>{submitState.message}</p>}
         </aside>
       </section>
     </div>
