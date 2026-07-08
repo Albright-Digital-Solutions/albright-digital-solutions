@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Video, Palette, Bot, Star, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight, ClipboardCheck, Server, GraduationCap, Wrench } from 'lucide-react';
+import { ArrowRight, Bot, Star, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import SchemaMarkup, { localBusinessSchema, BUSINESS } from '../components/SchemaMarkup';
 import LionZoomTransition from '../components/LionZoomTransition';
+import { serviceFamilies } from '../data/serviceFamilies';
 
 function useCardSpotlight(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
@@ -108,17 +109,17 @@ function HeroSection() {
 
         {/* Sub */}
         <p className="reveal reveal-delay-4 mt-4 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
-          <strong className="text-white font-medium">{BUSINESS.name}</strong> builds world-class websites, deploys intelligent AI agents, and produces premium creative assets for businesses across{' '}
+          <strong className="text-white font-medium">{BUSINESS.name}</strong> builds high-performing websites and manages the search, social, advertising, and business systems that help small businesses grow across{' '}
           <span className="text-[var(--color-brand-accent-light)]">Austin, Texas</span>.
         </p>
 
         {/* CTA */}
         <div className="reveal reveal-delay-5 mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            to="/contact"
+            to="/quote"
             className="btn-glow px-10 py-5 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-xl text-lg flex items-center gap-3"
           >
-            Start Your Project
+            Build a Custom Quote
             <ArrowRight size={20} />
           </Link>
           <Link
@@ -133,13 +134,6 @@ function HeroSection() {
     </section>
   );
 }
-
-const services = [
-  { icon: <ClipboardCheck size={28} />, title: 'Workflow Audit', sub: 'Operational Tune-Up', desc: 'We identify the bottlenecks, double-entry, and time-sinks quietly costing you money — then deliver a clear plan to fix them.', link: '/services/workflow-audit', tag: 'Start Here' },
-  { icon: <Server size={28} />, title: 'Digital Infrastructure', sub: 'Build · Own · Control', desc: 'Website, email, scheduling, payments, CRM — built to bank-grade security standards and handed over to you. No vendor lock-in.', link: '/services/digital-infrastructure', tag: 'Core Service' },
-  { icon: <GraduationCap size={28} />, title: 'AI Training', sub: 'Staff Enablement', desc: 'Hands-on training that teaches your team to use AI effectively, so one person can do the work of five.', link: '/services/ai-training', tag: 'Most Popular' },
-  { icon: <Wrench size={28} />, title: 'Performance Tuning', sub: 'Quarterly Maintenance', desc: 'Regular reviews, security patches, content updates, and system optimization to keep your technology sharp.', link: '/services/performance-tuning', tag: 'Ongoing' },
-];
 
 export default function Home() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -214,34 +208,24 @@ export default function Home() {
 
           {/* Cards */}
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {services.map((service, i) => (
+            {serviceFamilies.map((service) => (
               <Link
-                key={service.title}
-                to={service.link}
-                className={`card-spotlight glass-card rounded-2xl p-8 md:p-10 group relative ${i === 0 ? 'md:row-span-2' : ''}`}
+                key={service.slug}
+                to={`/services/${service.slug}`}
+                className="card-spotlight glass-card rounded-2xl group relative overflow-hidden"
               >
-                {/* Tag */}
-                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-brand-accent)] bg-[var(--color-brand-accent)]/[0.08] px-3 py-1.5 rounded-full mb-6 border border-[var(--color-brand-accent)]/10">
-                  {service.tag}
-                </span>
-
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-[var(--color-brand-accent)]/[0.08] border border-[var(--color-brand-accent)]/15 flex items-center justify-center text-[var(--color-brand-accent)] mb-6 group-hover:bg-[var(--color-brand-accent)]/15 group-hover:scale-110 transition-all duration-500">
-                  {service.icon}
+                <div className="aspect-[16/8] overflow-hidden border-b border-[var(--color-brand-border)]">
+                  <img src={service.image} alt={service.imageAlt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-
-                {/* Text */}
-                <h3 className={`font-serif font-bold text-white mb-1 ${i === 0 ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>{service.title}</h3>
-                <p className="text-sm text-[var(--color-brand-accent)]/70 font-medium mb-4">{service.sub}</p>
-                <p className={`text-zinc-400 leading-relaxed mb-6 ${i === 0 ? 'text-lg max-w-md' : 'text-sm'}`}>{service.desc}</p>
-
-                {/* Arrow */}
-                <div className="flex items-center gap-2 text-[var(--color-brand-accent)] text-sm font-bold group-hover:gap-4 transition-all duration-500">
-                  Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <div className="p-7 md:p-8">
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-brand-accent)] mb-4">{service.eyebrow}</span>
+                  <h3 className="font-serif font-bold text-white mb-3 text-2xl">{service.navName}</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-5 text-sm">{service.intro}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.services.slice(0, 4).map((item) => <span key={item.title} className="text-[10px] text-zinc-400 border border-[var(--color-brand-border)] rounded-full px-2.5 py-1">{item.title}</span>)}
+                  </div>
+                  <div className="flex items-center gap-2 text-[var(--color-brand-accent)] text-sm font-bold group-hover:gap-4 transition-all duration-500">Explore Service <ArrowRight size={16} /></div>
                 </div>
-
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none rounded-tr-2xl" style={{ background: 'linear-gradient(to bottom-left, rgba(229,159,43,0.04), transparent)' }} />
               </Link>
             ))}
           </div>

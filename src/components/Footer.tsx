@@ -43,10 +43,12 @@ export default function Footer() {
               <h3 className="text-[10px] font-bold text-[var(--color-brand-accent)] uppercase tracking-[0.25em] mb-6">Services</h3>
               <ul className="space-y-3">
                 {[
-                  { name: 'AI Agents & Automation', path: '/services/ai-automation' },
+                  { name: 'Custom AI Agents', path: '/services/custom-ai-agents' },
                   { name: 'Web Design & Dev', path: '/services/web-design' },
                   { name: 'Video Editing', path: '/services/video-editing' },
                   { name: 'Graphic Design', path: '/contact' },
+                  { name: 'Social Media Management', path: '/quote' },
+                  { name: 'Google & Local Visibility', path: '/quote' },
                 ].map((link) => (
                   <li key={link.name}>
                     <Link to={link.path} className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group">
@@ -65,6 +67,7 @@ export default function Footer() {
                 {[
                   { name: 'About Us', path: '/about' },
                   { name: 'Contact', path: '/contact' },
+                  { name: 'Build a Quote', path: '/quote' },
                 ].map((link) => (
                   <li key={link.name}>
                     <Link to={link.path} className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group">

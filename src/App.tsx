@@ -13,6 +13,8 @@ import WorkflowAudit from './pages/services/WorkflowAudit';
 import DigitalInfrastructure from './pages/services/DigitalInfrastructure';
 import AiTraining from './pages/services/AiTraining';
 import PerformanceTuning from './pages/services/PerformanceTuning';
+import QuoteBuilder from './pages/QuoteBuilder';
+import ServiceFamily from './pages/ServiceFamily';
 
 export default function App() {
   return (
@@ -35,7 +37,9 @@ export default function App() {
             <Route path="/services/digital-infrastructure" element={<DigitalInfrastructure />} />
             <Route path="/services/ai-training" element={<AiTraining />} />
             <Route path="/services/performance-tuning" element={<PerformanceTuning />} />
+            <Route path="/services/:slug" element={<ServiceFamily />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/quote" element={<QuoteBuilder />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

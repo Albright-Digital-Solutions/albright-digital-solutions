@@ -39,8 +39,8 @@ export const BUSINESS = {
   name: 'Albright Digital Solutions',
   legalName: 'Albright Digital Solutions LLC',
   url: 'https://albrightdigitalsolutions.com',
-  email: 'jason@founditmarketing.com',
-  phone: '+1-985-351-0299',
+  email: 'jason@albrightdigitalsolutions.com',
+  phone: '512-661-4927',
   address: {
     street: '100 Congress Ave',
     city: 'Austin',
@@ -58,7 +58,7 @@ export const BUSINESS = {
   ],
   foundingYear: 2023,
   description:
-    'Albright Digital Solutions is a full-service digital agency in Austin, Texas, specializing in AI automation, custom website design and development, professional video editing, and graphic design for local businesses and startups.',
+    'Albright Digital Solutions is a full-service digital agency in Austin, Texas, specializing in custom-built AI agents, AI automation, custom website design and development, local visibility, social media, advertising, video editing, and graphic design for local businesses and startups.',
   sameAs: [
     'https://github.com/Albright-Digital-Solutions',
   ],

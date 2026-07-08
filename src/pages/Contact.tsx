@@ -27,7 +27,7 @@ export default function Contact() {
           <div>
             <h2 className="text-3xl font-serif font-bold text-white mb-8">Get in Touch</h2>
             <p className="text-zinc-400 mb-12 text-lg">
-              Whether you need AI automation, a custom website, professional video editing, or brand design — our team in {BUSINESS.address.city}, Texas is ready to execute your vision.
+              Whether you need a custom website, custom-built AI agent, local visibility, social media, advertising, or better business systems — our team in {BUSINESS.address.city}, Texas is ready to help.
             </p>
 
             <div className="space-y-8">
@@ -135,8 +135,15 @@ export default function Contact() {
                   id="contact-service"
                   className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors appearance-none"
                 >
-                  <option>AI Agents & Automation</option>
                   <option>Website Design & Development</option>
+                  <option>Google Business Profile Management</option>
+                  <option>Local SEO / GEO</option>
+                  <option>Social Media Management</option>
+                  <option>Google & Digital Ad Management</option>
+                  <option>Email Marketing</option>
+                  <option>CRM & Business Systems</option>
+                  <option>Custom-Built AI Agent</option>
+                  <option>AI Agents & Automation</option>
                   <option>Video Editing & Production</option>
                   <option>Graphic Design & Branding</option>
                   <option>Multiple Services / Full Package</option>
