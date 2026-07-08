@@ -11,7 +11,21 @@ const dateFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numer
 export default function QuoteBuilder() {
   const [selected, setSelected] = useState<string[]>([]);
   const [openCategory, setOpenCategory] = useState<string | null>('Websites');
-  const [client, setClient] = useState({ name: '', business: '', email: '', phone: '', notes: '' });
+  const [client, setClient] = useState({
+    name: '',
+    business: '',
+    email: '',
+    phone: '',
+    industry: '',
+    website: '',
+    location: '',
+    teamSize: '',
+    customerType: '',
+    timeline: '',
+    currentSetup: '',
+    goals: '',
+    notes: '',
+  });
   const categories = [...new Set(quoteCatalog.map((item) => item.category))];
   const selectedItems = quoteCatalog.filter((item) => selected.includes(item.id));
   const oneTime = useMemo(() => selectedItems.reduce((sum, item) => sum + (item.oneTime || 0), 0), [selectedItems]);
@@ -28,11 +42,20 @@ export default function QuoteBuilder() {
       `Custom quote request ${quoteNumber}`,
       `Name: ${client.name}`,
       `Business: ${client.business}`,
+      `Email: ${client.email}`,
       `Phone: ${client.phone}`,
+      `Industry / business type: ${client.industry}`,
+      `Website / profile link: ${client.website}`,
+      `Service area: ${client.location}`,
+      `Team size: ${client.teamSize}`,
+      `Customer type: ${client.customerType}`,
+      `Timeline: ${client.timeline}`,
+      `Current digital setup: ${client.currentSetup}`,
+      `Main goals: ${client.goals}`,
       '', 'Selected services:', ...lines,
       '', `Estimated one-time total: ${money(oneTime)}`,
       `Estimated monthly total: ${money(monthly)}/month`,
-      '', `Project notes: ${client.notes}`,
+      '', `Additional notes: ${client.notes}`,
     ].join('\n');
     window.location.href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(`Custom quote request — ${client.business || client.name || quoteNumber}`)}&body=${encodeURIComponent(body)}`;
   };
@@ -44,7 +67,7 @@ export default function QuoteBuilder() {
         <div className="quote-shell">
           <span className="quote-kicker">Build Your Plan</span>
           <h1>Create a custom digital services quote.</h1>
-          <p>Choose the services that fit your business. Pricing appears only after you add an item to your quote, and we separate project costs from recurring support.</p>
+          <p>Choose the services that fit your business, then add a little context so we can turn a loose estimate into a useful next conversation.</p>
         </div>
       </section>
 
@@ -52,7 +75,7 @@ export default function QuoteBuilder() {
         <div className="quote-catalog no-print">
           <div className="quote-intro-card">
             <FileText size={22} />
-            <div><strong>No surprise platform markups.</strong><p>Ad spend, domains, email, CRM and third-party subscriptions are billed directly to you whenever possible.</p></div>
+            <div><strong>Private planning estimate.</strong><p>Pricing appears only after services are added. Ad spend, domains, email, CRM and third-party subscriptions are billed directly to you whenever possible.</p></div>
           </div>
           {categories.map((category) => {
             const items = quoteCatalog.filter((item) => item.category === category);
@@ -89,13 +112,62 @@ export default function QuoteBuilder() {
           <div className="quote-meta"><span>Estimate {quoteNumber}</span><span>{dateFormat.format(quoteDate)}</span></div>
 
           <div className="quote-client no-print">
-            <input aria-label="Your name" placeholder="Your name" value={client.name} onChange={(e) => setClient({ ...client, name: e.target.value })} />
-            <input aria-label="Business name" placeholder="Business name" value={client.business} onChange={(e) => setClient({ ...client, business: e.target.value })} />
-            <input aria-label="Email" type="email" placeholder="Email address" value={client.email} onChange={(e) => setClient({ ...client, email: e.target.value })} />
-            <input aria-label="Phone" type="tel" placeholder="Phone number" value={client.phone} onChange={(e) => setClient({ ...client, phone: e.target.value })} />
+            <div className="quote-form-section quote-form-section--full">
+              <span>Contact</span>
+              <div className="quote-form-grid">
+                <label>Your name<input aria-label="Your name" placeholder="Jane Smith" value={client.name} onChange={(e) => setClient({ ...client, name: e.target.value })} /></label>
+                <label>Business name<input aria-label="Business name" placeholder="Smith Family Roofing" value={client.business} onChange={(e) => setClient({ ...client, business: e.target.value })} /></label>
+                <label>Email<input aria-label="Email" type="email" placeholder="you@business.com" value={client.email} onChange={(e) => setClient({ ...client, email: e.target.value })} /></label>
+                <label>Phone<input aria-label="Phone" type="tel" placeholder="512-555-0123" value={client.phone} onChange={(e) => setClient({ ...client, phone: e.target.value })} /></label>
+              </div>
+            </div>
+
+            <div className="quote-form-section quote-form-section--full">
+              <span>Business snapshot</span>
+              <div className="quote-form-grid">
+                <label>What type of business is it?<input aria-label="Business type" placeholder="Roofing, med spa, restaurant, consulting…" value={client.industry} onChange={(e) => setClient({ ...client, industry: e.target.value })} /></label>
+                <label>Website or Google Profile link<input aria-label="Website or profile link" placeholder="https://..." value={client.website} onChange={(e) => setClient({ ...client, website: e.target.value })} /></label>
+                <label>Primary city / service area<input aria-label="Primary service area" placeholder="Austin, Round Rock, Central Texas…" value={client.location} onChange={(e) => setClient({ ...client, location: e.target.value })} /></label>
+                <label>Team size
+                  <select aria-label="Team size" value={client.teamSize} onChange={(e) => setClient({ ...client, teamSize: e.target.value })}>
+                    <option value="">Select one</option>
+                    <option>Solo owner/operator</option>
+                    <option>2–5 people</option>
+                    <option>6–15 people</option>
+                    <option>16–50 people</option>
+                    <option>50+ people</option>
+                  </select>
+                </label>
+                <label>Who do you mainly serve?
+                  <select aria-label="Customer type" value={client.customerType} onChange={(e) => setClient({ ...client, customerType: e.target.value })}>
+                    <option value="">Select one</option>
+                    <option>Local consumers / homeowners</option>
+                    <option>Other businesses</option>
+                    <option>Both consumers and businesses</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </label>
+                <label>Ideal timeline
+                  <select aria-label="Ideal timeline" value={client.timeline} onChange={(e) => setClient({ ...client, timeline: e.target.value })}>
+                    <option value="">Select one</option>
+                    <option>ASAP / urgent</option>
+                    <option>Within 30 days</option>
+                    <option>1–3 months</option>
+                    <option>Planning ahead</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div className="quote-form-section quote-form-section--full">
+              <span>Current setup and goals</span>
+              <label>What are you using now?<textarea aria-label="Current digital setup" placeholder="Current website, Google profile, social pages, ads, CRM, booking, email list, or anything that already exists…" value={client.currentSetup} onChange={(e) => setClient({ ...client, currentSetup: e.target.value })} /></label>
+              <label>What are you trying to improve first?<textarea aria-label="Main goals" placeholder="More calls, better Google presence, cleaner website, social consistency, lead follow-up, booking, AI automation…" value={client.goals} onChange={(e) => setClient({ ...client, goals: e.target.value })} /></label>
+            </div>
           </div>
-          {(client.name || client.business || client.email || client.phone) && <div className="quote-client-print print-only">
+          {(client.name || client.business || client.email || client.phone || client.industry || client.location || client.teamSize) && <div className="quote-client-print print-only">
             <strong>{client.business || client.name}</strong><br />{client.name}{client.business && client.name ? <br /> : null}{client.email}<br />{client.phone}
+            <br />{client.industry}{client.location ? ` · ${client.location}` : ''}{client.teamSize ? ` · ${client.teamSize}` : ''}
           </div>}
 
           {selectedItems.length === 0 ? <div className="quote-empty"><Plus size={28} /><p>Add services to generate your estimate.</p></div> : <>
@@ -116,8 +188,8 @@ export default function QuoteBuilder() {
             </div>
           </>}
 
-          <textarea className="quote-notes no-print" aria-label="Project notes" placeholder="Tell us about your goals, timeline, locations, or special requirements…" value={client.notes} onChange={(e) => setClient({ ...client, notes: e.target.value })} />
-          {client.notes && <p className="print-only quote-notes-print"><strong>Project notes:</strong> {client.notes}</p>}
+          <textarea className="quote-notes no-print" aria-label="Additional notes" placeholder="Anything else we should know? Budget range, competitors you like, problem accounts, existing tools, or special requirements…" value={client.notes} onChange={(e) => setClient({ ...client, notes: e.target.value })} />
+          {(client.currentSetup || client.goals || client.notes) && <p className="print-only quote-notes-print"><strong>Business context:</strong> {client.currentSetup} {client.goals} {client.notes}</p>}
 
           <div className="quote-disclaimer">
             <strong>Estimate valid through {dateFormat.format(validUntil)}.</strong>

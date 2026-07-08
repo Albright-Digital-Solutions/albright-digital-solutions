@@ -481,72 +481,89 @@ body {
 /* ═══════════════════════════════════════════════════════════════
    PRIVATE CUSTOM QUOTE BUILDER
    ═══════════════════════════════════════════════════════════════ */
-.quote-page { background: #f1f5f9; color: #0f172a; min-height: 100vh; }
+.quote-page {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(229, 159, 43, .11), transparent 30rem),
+    radial-gradient(circle at 88% 30%, rgba(255, 210, 117, .07), transparent 26rem),
+    linear-gradient(180deg, #050504 0%, #0a0a09 42%, #100f0e 100%);
+  color: #e8e4de;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
 .quote-shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
-.quote-hero { background: #0f172a; color: white; padding: 4.5rem 0 4rem; border-bottom: 4px solid var(--color-brand-accent); }
-.quote-hero .quote-shell { max-width: 1180px; }
+.quote-hero { position: relative; overflow: hidden; color: white; padding: 5.5rem 0 4rem; border-bottom: 1px solid rgba(229, 159, 43, .18); }
+.quote-hero::before { content: ""; position: absolute; inset: auto -10% -42% -10%; height: 24rem; background: radial-gradient(closest-side, rgba(229, 159, 43, .14), transparent 72%); pointer-events: none; }
+.quote-hero .quote-shell { position: relative; max-width: 1180px; }
 .quote-kicker { display: block; color: var(--color-brand-accent); font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .75rem; }
-.quote-hero h1 { font-family: var(--font-serif); font-size: clamp(2.35rem, 6vw, 4rem); line-height: 1.05; font-weight: 700; margin-bottom: 1rem; }
-.quote-hero p { color: #cbd5e1; max-width: 46rem; line-height: 1.75; font-size: 1.05rem; }
+.quote-hero h1 { font-family: var(--font-serif); font-size: clamp(2.35rem, 6vw, 4.6rem); line-height: .98; font-weight: 700; margin-bottom: 1rem; max-width: 58rem; }
+.quote-hero p { color: #b8b2aa; max-width: 48rem; line-height: 1.75; font-size: 1.05rem; }
 .quote-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: 2rem; align-items: start; padding-top: 3rem; padding-bottom: 5rem; }
-.quote-intro-card { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: #fffbeb; border: 1px solid #fde68a; color: #78350f; border-radius: .8rem; margin-bottom: 1.25rem; }
+.quote-intro-card { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: linear-gradient(135deg, rgba(229, 159, 43, .16), rgba(20, 19, 17, .86)); border: 1px solid rgba(229, 159, 43, .28); color: #ffe7af; border-radius: 1rem; margin-bottom: 1.25rem; box-shadow: 0 18px 45px rgba(0, 0, 0, .28); }
 .quote-intro-card svg { flex: 0 0 auto; margin-top: .1rem; }
 .quote-intro-card strong { display: block; margin-bottom: .25rem; }
-.quote-intro-card p { font-size: .88rem; line-height: 1.55; color: #92400e; }
-.quote-category { background: white; border: 1px solid #dbe3ed; border-radius: .8rem; margin-bottom: .75rem; overflow: hidden; }
-.quote-category-button { appearance: none; border: 0; background: white; color: #0f172a; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.15rem 1.25rem; font-weight: 800; font-size: 1rem; text-align: left; cursor: pointer; }
-.quote-category-button svg { color: #64748b; transition: transform .2s; }
-.quote-options { border-top: 1px solid #e2e8f0; padding: .75rem; display: grid; gap: .75rem; }
-.quote-option { border: 1px solid #e2e8f0; border-radius: .7rem; padding: 1.15rem; transition: border-color .2s, background .2s; }
-.quote-option--active { border-color: #d69a31; background: #fffbeb; }
-.quote-option h3 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: .3rem; }
-.quote-option-copy > p { color: #64748b; font-size: .88rem; line-height: 1.55; }
+.quote-intro-card p { font-size: .88rem; line-height: 1.55; color: #cfc5b6; }
+.quote-category { background: rgba(20, 19, 17, .82); border: 1px solid rgba(255, 210, 117, .11); border-radius: 1rem; margin-bottom: .85rem; overflow: hidden; box-shadow: 0 18px 45px rgba(0, 0, 0, .22); }
+.quote-category-button { appearance: none; border: 0; background: rgba(255, 255, 255, .015); color: #f5efe5; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.15rem 1.25rem; font-weight: 800; font-size: 1rem; text-align: left; cursor: pointer; }
+.quote-category-button svg { color: var(--color-brand-accent-light); transition: transform .2s; }
+.quote-options { border-top: 1px solid rgba(255, 210, 117, .1); padding: .8rem; display: grid; gap: .75rem; }
+.quote-option { border: 1px solid rgba(255, 210, 117, .11); background: rgba(10, 10, 9, .58); border-radius: .85rem; padding: 1.15rem; transition: border-color .2s, background .2s, transform .2s; }
+.quote-option:hover { border-color: rgba(229, 159, 43, .38); transform: translateY(-1px); }
+.quote-option--active { border-color: rgba(229, 159, 43, .78); background: linear-gradient(135deg, rgba(229, 159, 43, .13), rgba(10, 10, 9, .72)); }
+.quote-option h3 { font-family: var(--font-serif); color: #fff; font-size: 1.1rem; margin-bottom: .3rem; }
+.quote-option-copy > p { color: #a9a29a; font-size: .88rem; line-height: 1.55; }
 .quote-option ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem 1rem; margin: .85rem 0; }
-.quote-option li { display: flex; gap: .35rem; align-items: flex-start; color: #475569; font-size: .76rem; }
-.quote-option li svg { color: #b37314; flex: 0 0 auto; margin-top: .1rem; }
-.quote-add { border: 1px solid #cbd5e1; background: white; color: #0f172a; border-radius: .5rem; padding: .62rem .85rem; display: inline-flex; gap: .4rem; align-items: center; font-size: .8rem; font-weight: 800; cursor: pointer; }
-.quote-option--active .quote-add { background: #0f172a; border-color: #0f172a; color: white; }
-.quote-paper { position: sticky; top: 6rem; background: white; border: 1px solid #dbe3ed; border-radius: .85rem; padding: 1.6rem; box-shadow: 0 20px 50px rgba(15, 23, 42, .08); }
-.quote-paper-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-bottom: 2px solid #0f172a; padding-bottom: 1.1rem; }
-.quote-paper-head h2 { font-family: var(--font-serif); font-size: 1.35rem; }
+.quote-option li { display: flex; gap: .35rem; align-items: flex-start; color: #b8b2aa; font-size: .76rem; }
+.quote-option li svg { color: var(--color-brand-accent); flex: 0 0 auto; margin-top: .1rem; }
+.quote-add { border: 1px solid rgba(229, 159, 43, .36); background: rgba(229, 159, 43, .08); color: var(--color-brand-accent-light); border-radius: .6rem; padding: .68rem .9rem; display: inline-flex; gap: .4rem; align-items: center; font-size: .8rem; font-weight: 800; cursor: pointer; }
+.quote-option--active .quote-add { background: var(--color-brand-accent); border-color: var(--color-brand-accent); color: #0a0a09; }
+.quote-paper { position: sticky; top: 6rem; background: linear-gradient(180deg, rgba(20, 19, 17, .98), rgba(10, 10, 9, .98)); border: 1px solid rgba(255, 210, 117, .16); border-radius: 1.15rem; padding: 1.6rem; box-shadow: 0 28px 80px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 210, 117, .07); }
+.quote-paper-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-bottom: 1px solid rgba(229, 159, 43, .35); padding-bottom: 1.1rem; }
+.quote-paper-head h2 { font-family: var(--font-serif); color: #fff; font-size: 1.35rem; }
 .quote-paper-head img { width: 52px; height: 52px; object-fit: contain; }
-.quote-meta { display: flex; justify-content: space-between; color: #64748b; font-size: .72rem; padding: .65rem 0 1rem; }
-.quote-client { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-bottom: 1rem; }
-.quote-client input, .quote-notes { border: 1px solid #dbe3ed; background: #f8fafc; color: #0f172a; border-radius: .45rem; padding: .7rem .75rem; font-size: .8rem; outline: none; }
-.quote-client input:focus, .quote-notes:focus { border-color: #d69a31; }
-.quote-empty { min-height: 150px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .65rem; color: #94a3b8; border: 1px dashed #cbd5e1; border-radius: .6rem; text-align: center; }
-.quote-lines { border-top: 1px solid #e2e8f0; }
-.quote-line { position: relative; display: grid; grid-template-columns: 1fr auto 24px; gap: .75rem; padding: .9rem 0; border-bottom: 1px solid #e2e8f0; }
-.quote-line strong { display: block; font-size: .83rem; }
-.quote-line small { display: block; color: #64748b; font-size: .65rem; margin-top: .18rem; }
+.quote-meta { display: flex; justify-content: space-between; color: #8f8980; font-size: .72rem; padding: .65rem 0 1rem; }
+.quote-client { display: grid; gap: .9rem; margin-bottom: 1rem; }
+.quote-form-section { border: 1px solid rgba(255, 210, 117, .1); border-radius: .85rem; background: rgba(255, 255, 255, .025); padding: .9rem; }
+.quote-form-section > span { display: block; color: var(--color-brand-accent); font-size: .62rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; margin-bottom: .7rem; }
+.quote-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+.quote-client label { display: grid; gap: .35rem; color: #c9c1b6; font-size: .7rem; font-weight: 700; }
+.quote-client input, .quote-client select, .quote-client textarea, .quote-notes { border: 1px solid rgba(255, 210, 117, .14); background: #0a0a09; color: #f6f1e8; border-radius: .58rem; padding: .72rem .78rem; font-size: .8rem; outline: none; width: 100%; }
+.quote-client textarea { min-height: 82px; resize: vertical; }
+.quote-client input::placeholder, .quote-client textarea::placeholder, .quote-notes::placeholder { color: #6f685e; }
+.quote-client input:focus, .quote-client select:focus, .quote-client textarea:focus, .quote-notes:focus { border-color: var(--color-brand-accent); box-shadow: 0 0 0 3px rgba(229, 159, 43, .12); }
+.quote-empty { min-height: 150px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .65rem; color: #8f8980; border: 1px dashed rgba(255, 210, 117, .18); border-radius: .8rem; text-align: center; background: rgba(255, 255, 255, .02); }
+.quote-lines { border-top: 1px solid rgba(255, 210, 117, .12); }
+.quote-line { position: relative; display: grid; grid-template-columns: 1fr auto 24px; gap: .75rem; padding: .9rem 0; border-bottom: 1px solid rgba(255, 210, 117, .1); }
+.quote-line strong { display: block; color: #fff; font-size: .83rem; }
+.quote-line small { display: block; color: #8f8980; font-size: .65rem; margin-top: .18rem; }
 .quote-line-price { text-align: right; }
-.quote-line-price span { display: block; font-weight: 800; font-size: .8rem; white-space: nowrap; }
+.quote-line-price span { display: block; color: #ffe1a0; font-weight: 800; font-size: .8rem; white-space: nowrap; }
 .quote-line-price small { display: inline; font-weight: 500; }
-.quote-line button { border: 0; background: transparent; color: #94a3b8; padding: 0; cursor: pointer; }
-.quote-line > p { grid-column: 1 / -1; color: #64748b; font-size: .68rem; line-height: 1.5; background: #f8fafc; padding: .45rem .55rem; border-radius: .3rem; }
+.quote-line button { border: 0; background: transparent; color: #8f8980; padding: 0; cursor: pointer; }
+.quote-line > p { grid-column: 1 / -1; color: #aaa198; font-size: .68rem; line-height: 1.5; background: rgba(255, 255, 255, .035); padding: .5rem .6rem; border-radius: .45rem; }
 .quote-totals { padding: 1rem 0; display: grid; gap: .65rem; }
-.quote-totals > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: #475569; font-size: .78rem; }
-.quote-totals strong { color: #0f172a; font-size: 1.15rem; }
-.quote-totals .quote-monthly { background: #0f172a; color: #cbd5e1; margin: 0 -.7rem; padding: .8rem .7rem; border-radius: .5rem; }
+.quote-totals > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: #b8b2aa; font-size: .78rem; }
+.quote-totals strong { color: #fff; font-size: 1.15rem; }
+.quote-totals .quote-monthly { background: rgba(229, 159, 43, .13); color: #d7cec3; margin: 0 -.7rem; padding: .8rem .7rem; border: 1px solid rgba(229, 159, 43, .22); border-radius: .65rem; }
 .quote-totals .quote-monthly strong { color: #ffd275; }
 .quote-totals strong small { font-size: .65rem; margin-left: .15rem; font-weight: 600; }
 .quote-notes { width: 100%; min-height: 78px; resize: vertical; margin: .4rem 0 .9rem; }
-.quote-disclaimer { border-top: 1px solid #e2e8f0; padding-top: .9rem; color: #64748b; font-size: .65rem; line-height: 1.5; }
-.quote-disclaimer strong { display: block; color: #334155; margin-bottom: .25rem; }
+.quote-disclaimer { border-top: 1px solid rgba(255, 210, 117, .12); padding-top: .9rem; color: #928b82; font-size: .65rem; line-height: 1.5; }
+.quote-disclaimer strong { display: block; color: #dfd6ca; margin-bottom: .25rem; }
 .quote-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin-top: 1rem; }
-.quote-actions button { border: 0; border-radius: .5rem; background: #d69a31; color: #111827; font-weight: 800; font-size: .75rem; padding: .75rem; display: flex; justify-content: center; align-items: center; gap: .4rem; cursor: pointer; }
-.quote-actions .quote-print { background: #e2e8f0; }
+.quote-actions button { border: 0; border-radius: .65rem; background: var(--color-brand-accent); color: #0a0a09; font-weight: 900; font-size: .75rem; padding: .78rem; display: flex; justify-content: center; align-items: center; gap: .4rem; cursor: pointer; }
+.quote-actions .quote-print { background: rgba(255, 255, 255, .08); color: #f5efe5; border: 1px solid rgba(255, 210, 117, .12); }
 .quote-actions button:disabled { opacity: .45; cursor: not-allowed; }
 .print-only { display: none; }
 
 @media (max-width: 900px) {
   .quote-layout { grid-template-columns: 1fr; }
   .quote-paper { position: static; }
+  .quote-page { padding-top: 4.25rem; }
 }
 @media (max-width: 540px) {
-  .quote-option ul { grid-template-columns: 1fr; }
-  .quote-client { grid-template-columns: 1fr; }
+  .quote-option ul, .quote-form-grid { grid-template-columns: 1fr; }
   .quote-actions { grid-template-columns: 1fr; }
+  .quote-hero { padding-top: 4.25rem; }
 }
 @media print {
   body { background: white !important; }
