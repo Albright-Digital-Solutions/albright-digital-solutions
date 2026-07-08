@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-d
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CursorTrail from './components/CursorTrail';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -21,6 +22,7 @@ export default function App() {
     <>
       <CursorTrail />
       <Router>
+      <ScrollToTop />
       <div
         className="flex flex-col min-h-screen bg-[var(--color-brand-dark)] text-zinc-300"
       >
