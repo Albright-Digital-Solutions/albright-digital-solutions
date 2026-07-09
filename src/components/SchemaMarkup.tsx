@@ -1,37 +1,25 @@
-import { useEffect } from 'react';
-
 interface SchemaMarkupProps {
   schema: Record<string, unknown> | Record<string, unknown>[];
 }
 
 /**
- * Injects JSON-LD structured data into the document <head>.
+ * Renders JSON-LD structured data.
  * Accepts a single schema object or an array of schema objects.
- * Automatically cleans up on unmount to prevent duplicate schema tags.
  */
 export default function SchemaMarkup({ schema }: SchemaMarkupProps) {
-  useEffect(() => {
-    const schemas = Array.isArray(schema) ? schema : [schema];
-    const scriptElements: HTMLScriptElement[] = [];
+  const schemas = Array.isArray(schema) ? schema : [schema];
 
-    schemas.forEach((s) => {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(s);
-      document.head.appendChild(script);
-      scriptElements.push(script);
-    });
-
-    return () => {
-      scriptElements.forEach((el) => {
-        if (document.head.contains(el)) {
-          document.head.removeChild(el);
-        }
-      });
-    };
-  }, [schema]);
-
-  return null;
+  return (
+    <>
+      {schemas.map((item, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+        />
+      ))}
+    </>
+  );
 }
 
 // ─── Shared Business Constants ────────────────────────────────────────────
@@ -83,13 +71,6 @@ export function localBusinessSchema() {
       },
     ],
     sameAs: BUSINESS.sameAs,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '12',
-      bestRating: '5',
-      worstRating: '1',
-    },
     areaServed: [
       { '@type': 'State', name: 'Texas' },
       { '@type': 'Country', name: 'United States' },

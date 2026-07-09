@@ -39,7 +39,7 @@ export default function LionZoomTransition() {
   const [progress, setProgress] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isComplete, setIsComplete] = useState(
-    () => sessionStorage.getItem(INTRO_SESSION_KEY) === 'true',
+    () => typeof window === 'undefined' || sessionStorage.getItem(INTRO_SESSION_KEY) === 'true',
   );
 
   const animateParticles = useCallback(() => {

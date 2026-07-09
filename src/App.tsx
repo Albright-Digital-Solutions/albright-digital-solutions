@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CursorTrail from './components/CursorTrail';
 import ScrollToTop from './components/ScrollToTop';
+import PageHead from './components/PageHead';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -17,12 +18,12 @@ import PerformanceTuning from './pages/services/PerformanceTuning';
 import QuoteBuilder from './pages/QuoteBuilder';
 import ServiceFamily from './pages/ServiceFamily';
 
-export default function App() {
+export function AppContent() {
   return (
     <>
       <CursorTrail />
-      <Router>
       <ScrollToTop />
+      <PageHead />
       <div
         className="flex flex-col min-h-screen bg-[var(--color-brand-dark)] text-zinc-300"
       >
@@ -47,7 +48,14 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </Router>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }

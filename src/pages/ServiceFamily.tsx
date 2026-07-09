@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
+import SchemaMarkup, { breadcrumbSchema, BUSINESS, serviceSchema } from '../components/SchemaMarkup';
 import { serviceBySlug } from '../data/serviceFamilies';
 
 export default function ServiceFamily() {
@@ -8,8 +8,14 @@ export default function ServiceFamily() {
   const service = serviceBySlug(slug);
   if (!service) return <Navigate to="/services" replace />;
 
+  const serviceUrl = `${BUSINESS.url}/services/${service.slug}`;
+  const schemas = [
+    breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Services', url: `${BUSINESS.url}/services` }, { name: service.navName, url: serviceUrl }]),
+    serviceSchema(service.navName, service.intro, serviceUrl),
+  ];
+
   return <div className="family-page">
-    <SchemaMarkup schema={breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Services', url: `${BUSINESS.url}/services` }, { name: service.navName, url: `${BUSINESS.url}/services/${service.slug}` }])} />
+    <SchemaMarkup schema={schemas} />
     <section className="family-hero">
       <img src={service.image} alt={service.imageAlt} />
       <div className="family-hero-overlay" />

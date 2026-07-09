@@ -102,7 +102,7 @@ function HeroSection() {
 
         {/* H1 */}
         <h1 className="reveal reveal-delay-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-white tracking-tight leading-[0.9] mb-8">
-          We Make<br />
+          We Make<br />{' '}
           Brands{' '}
           <span className="text-shimmer">Memorable</span>
         </h1>
