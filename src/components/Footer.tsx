@@ -17,18 +17,18 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
 
             {/* Brand column */}
-            <div className="md:col-span-5">
-              <Link to="/" className="inline-block mb-6 group">
+            <div className="md:col-span-5 flex flex-col items-center md:items-start">
+              <Link to="/" className="inline-block mb-6 group self-center">
                 <img
                   src="/Albright_Digital_Solutions_Logo.png"
                   alt="Albright Digital Solutions Logo"
-                  className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-500"
+                  className="w-32 h-32 object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </Link>
-              <p className="text-sm text-zinc-400 max-w-sm leading-relaxed mb-6">
+              <p className="text-sm text-zinc-400 max-w-sm leading-relaxed mb-6 text-center md:text-left">
                 {BUSINESS.description}
               </p>
-              <div className="space-y-1 text-xs text-zinc-500">
+              <div className="space-y-1 text-xs text-zinc-500 text-center md:text-left">
                 <p>Texas-based · Remote consultations available</p>
                 <p>
                   <a href={`tel:${BUSINESS.phone}`} className="hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>
