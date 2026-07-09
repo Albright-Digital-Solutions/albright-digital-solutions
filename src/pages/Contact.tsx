@@ -77,7 +77,7 @@ export default function Contact() {
           <div>
             <h2 className="text-3xl font-serif font-bold text-white mb-8">Get in Touch</h2>
             <p className="text-zinc-400 mb-12 text-lg">
-              Whether you need a custom website, custom-built AI agent, local visibility, social media, advertising, or better business systems — our team in {BUSINESS.address.city}, Texas is ready to help.
+              Whether you need a custom website, custom-built AI agent, local visibility, social media, advertising, or better business systems — our Texas-based team is ready to help.
             </p>
 
             <div className="space-y-8">
@@ -106,10 +106,10 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold mb-1">Office</h3>
+                  <h3 className="text-white font-bold mb-1">Service Area</h3>
                   <p className="text-zinc-400">
-                    {BUSINESS.address.street}<br />
-                    {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}
+                    Texas-based<br />
+                    Remote consultations available
                   </p>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function Contact() {
             <div className="mt-12 bg-[var(--color-brand-surface)]/50 border border-[var(--color-brand-border)] rounded-xl p-6">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Service Areas</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                We serve businesses in Austin, Round Rock, Cedar Park, Georgetown, San Marcos, Pflugerville, Leander, Kyle, Dripping Springs, and all of Central Texas. Remote services available nationwide.
+                We serve businesses across Texas and support remote clients nationwide. No commercial office visits are required — strategy, setup, reporting, and ongoing management can be handled remotely.
               </p>
             </div>
           </div>

@@ -3,7 +3,7 @@ import { ArrowRight, Code, Layout, Server, Gauge, ShieldCheck, ChevronDown } fro
 import { useState } from 'react';
 import SchemaMarkup, { serviceSchema, faqSchema, breadcrumbSchema, BUSINESS } from '../../components/SchemaMarkup';
 
-const SERVICE_NAME = 'Web Design & Development in Austin, Texas';
+const SERVICE_NAME = 'Web Design & Development';
 const SERVICE_URL = `${BUSINESS.url}/services/web-design`;
 
 const faqs = [
@@ -31,7 +31,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function WebDesign() {
   const schemas = [
-    serviceSchema(SERVICE_NAME, 'Custom website design and development for businesses in Austin, Round Rock, Cedar Park, and Central Texas. SEO-first architecture, schema markup, and mobile-first design.', SERVICE_URL),
+    serviceSchema(SERVICE_NAME, 'Custom website design and development for Texas businesses and remote clients nationwide. SEO-first architecture, schema markup, and mobile-first design.', SERVICE_URL),
     faqSchema(faqs),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Web Design & Development', url: SERVICE_URL }]),
   ];
@@ -49,7 +49,7 @@ export default function WebDesign() {
           </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">{SERVICE_NAME}</h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-3xl leading-relaxed mb-8">
-            {BUSINESS.name} builds high-performance, SEO-first websites and web applications for businesses in Austin, Round Rock, Cedar Park, Georgetown, and across Central Texas. Every website we build is engineered with entity-based optimization, structured data markup, mobile-first design, and sub-second load times — because a beautiful website that doesn't rank is just an expensive digital business card.
+            {BUSINESS.name} builds high-performance, SEO-first websites and web applications for Texas businesses and remote clients nationwide. Every website we build is engineered with entity-based optimization, structured data markup, mobile-first design, and sub-second load times — because a beautiful website that doesn't rank is just an expensive digital business card.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-lg hover:bg-[var(--color-brand-accent-light)] transition-colors">
@@ -98,7 +98,7 @@ export default function WebDesign() {
       {/* FAQ */}
       <section className="px-4 py-20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-white mb-4 text-center">Frequently Asked Questions About Web Design in {BUSINESS.address.city}</h2>
+          <h2 className="text-3xl font-serif font-bold text-white mb-4 text-center">Frequently Asked Questions About Web Design</h2>
           <p className="text-zinc-400 text-center mb-12">Common questions about custom website development for local businesses.</p>
           <div className="space-y-3">{faqs.map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
         </div>
@@ -109,7 +109,7 @@ export default function WebDesign() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-serif font-bold text-white mb-6">Ready for a Website That Ranks?</h2>
           <p className="text-zinc-400 mb-4">Contact {BUSINESS.name} for a free website audit and strategy consultation.</p>
-          <p className="text-zinc-500 text-sm mb-8">{BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]">{BUSINESS.phone}</a></p>
+          <p className="text-zinc-500 text-sm mb-8">Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]">{BUSINESS.phone}</a></p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-lg hover:bg-[var(--color-brand-accent-light)] transition-colors">Schedule Free Audit <ArrowRight size={18} /></Link>
             <Link to="/services/video-editing" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-surface)] text-white font-bold rounded-lg border border-[var(--color-brand-border)] hover:bg-[var(--color-brand-border)] transition-colors">See Video Services</Link>

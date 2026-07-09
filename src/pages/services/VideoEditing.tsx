@@ -3,7 +3,7 @@ import { ArrowRight, Video, Film, Clapperboard, MonitorPlay, ChevronDown } from 
 import { useState } from 'react';
 import SchemaMarkup, { serviceSchema, faqSchema, breadcrumbSchema, BUSINESS } from '../../components/SchemaMarkup';
 
-const SERVICE_NAME = 'Video Editing & Production in Austin, Texas';
+const SERVICE_NAME = 'Video Editing & Production';
 const SERVICE_URL = `${BUSINESS.url}/services/video-editing`;
 
 const faqs = [
@@ -31,7 +31,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function VideoEditing() {
   const schemas = [
-    serviceSchema(SERVICE_NAME, 'Professional video editing and production for businesses in Austin, Round Rock, Cedar Park, and Central Texas.', SERVICE_URL),
+    serviceSchema(SERVICE_NAME, 'Professional video editing and post-production for Texas businesses and remote clients nationwide.', SERVICE_URL),
     faqSchema(faqs),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Video Editing & Production', url: SERVICE_URL }]),
   ];
@@ -49,7 +49,7 @@ export default function VideoEditing() {
           </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">{SERVICE_NAME}</h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-3xl leading-relaxed mb-8">
-            {BUSINESS.name} delivers professional video editing and post-production services for businesses in Austin, Round Rock, Cedar Park, Georgetown, and across Central Texas. From investor pitch videos and commercial advertising to social media content and brand documentaries, we craft visual narratives that command attention, communicate value, and drive measurable engagement across every platform.
+            {BUSINESS.name} delivers professional video editing and post-production services for Texas businesses and remote clients nationwide. From investor pitch videos and commercial advertising to social media content and brand documentaries, we craft visual narratives that command attention, communicate value, and drive measurable engagement across every platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-lg hover:bg-[var(--color-brand-accent-light)] transition-colors">
@@ -68,9 +68,9 @@ export default function VideoEditing() {
           <h2 className="text-3xl font-serif font-bold text-white mb-8">Video Services We Deliver</h2>
           <div className="space-y-12">
             {[
-              { icon: <Film size={28} />, title: 'Business Pitch & Investor Videos', text: 'First impressions define funding outcomes. We produce polished, narrative-driven pitch videos that distill your value proposition into a compelling visual story. Our edits include professional color grading, kinetic typography, data visualization overlays, and cinematic transitions that position your startup or small business as credible, innovative, and investable. Businesses across Central Texas trust us to produce the videos that secure partnerships and capital.' },
+              { icon: <Film size={28} />, title: 'Business Pitch & Investor Videos', text: 'First impressions define funding outcomes. We produce polished, narrative-driven pitch videos that distill your value proposition into a compelling visual story. Our edits include professional color grading, kinetic typography, data visualization overlays, and cinematic transitions that position your startup or small business as credible, innovative, and investable. Businesses across Texas and beyond trust us to produce the videos that secure partnerships and capital.' },
               { icon: <Clapperboard size={28} />, title: 'Commercial Advertising & Brand Films', text: 'We transform raw footage into broadcast-quality advertisements and brand films. Our post-production pipeline includes multi-camera editing, sound design, music licensing and integration, motion graphics, and format optimization for TV, YouTube pre-roll, Facebook, and Instagram. Texas businesses that invest in professional video advertising see significantly higher engagement rates compared to static image campaigns.' },
-              { icon: <MonitorPlay size={28} />, title: 'Social Media Content (Reels, Shorts, TikTok)', text: 'Short-form video dominates social media algorithms. We produce scroll-stopping reels, YouTube Shorts, and TikTok content designed for maximum engagement — including hook-first editing, trending format adaptation, captions, and platform-specific aspect ratio optimization. Our monthly content packages help Austin and Central Texas businesses maintain a consistent, professional social media presence without the burden of in-house production.' },
+              { icon: <MonitorPlay size={28} />, title: 'Social Media Content (Reels, Shorts, TikTok)', text: 'Short-form video dominates social media algorithms. We produce scroll-stopping reels, YouTube Shorts, and TikTok content designed for maximum engagement — including hook-first editing, trending format adaptation, captions, and platform-specific aspect ratio optimization. Our monthly content packages help businesses maintain a consistent, professional social media presence without the burden of in-house production.' },
               { icon: <Video size={28} />, title: 'Training, Onboarding & Internal Communications', text: 'Reduce onboarding time and improve knowledge retention with professionally edited training videos. We produce structured instructional content with chapter markers, screen recordings, voiceover integration, and animated diagrams. These assets scale your team training without requiring senior staff to repeat the same information to every new hire.' },
             ].map((item) => (
               <div key={item.title} className="grid md:grid-cols-[auto_1fr] gap-6">
@@ -97,7 +97,7 @@ export default function VideoEditing() {
       {/* FAQ */}
       <section className="px-4 py-20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-white mb-4 text-center">Frequently Asked Questions About Video Production in {BUSINESS.address.city}</h2>
+          <h2 className="text-3xl font-serif font-bold text-white mb-4 text-center">Frequently Asked Questions About Video Production</h2>
           <p className="text-zinc-400 text-center mb-12">Common questions about professional video editing services.</p>
           <div className="space-y-3">{faqs.map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
         </div>
@@ -108,7 +108,7 @@ export default function VideoEditing() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-serif font-bold text-white mb-6">Ready to Elevate Your Video Content?</h2>
           <p className="text-zinc-400 mb-4">Contact {BUSINESS.name} for a free video project consultation.</p>
-          <p className="text-zinc-500 text-sm mb-8">{BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]">{BUSINESS.phone}</a></p>
+          <p className="text-zinc-500 text-sm mb-8">Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]">{BUSINESS.phone}</a></p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-lg hover:bg-[var(--color-brand-accent-light)] transition-colors">Request a Quote <ArrowRight size={18} /></Link>
             <Link to="/services/ai-automation" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-surface)] text-white font-bold rounded-lg border border-[var(--color-brand-border)] hover:bg-[var(--color-brand-border)] transition-colors">See AI Services</Link>

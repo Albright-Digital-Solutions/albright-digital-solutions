@@ -31,7 +31,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function WorkflowAudit() {
   const schemas = [
-    serviceSchema(SERVICE_NAME, 'Operational workflow audits for small businesses in Austin, Round Rock, Cedar Park, and Central Texas. We identify bottlenecks, double-entry, and time-sinks that are quietly costing you money.', SERVICE_URL),
+    serviceSchema(SERVICE_NAME, 'Operational workflow audits for small businesses in Texas and remote clients nationwide. We identify bottlenecks, double-entry, and time-sinks that are quietly costing you money.', SERVICE_URL),
     faqSchema(faqs),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: SERVICE_NAME, url: SERVICE_URL }]),
   ];
@@ -165,7 +165,7 @@ export default function WorkflowAudit() {
           <h2 className="svc-heading">Stop guessing where the time goes.</h2>
           <p className="svc-body">Let {BUSINESS.name} show you — and give you a plan to fix it.</p>
           <p className="svc-cta-contact">
-            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
+            Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact" className="svc-cta-btn svc-cta-btn--primary">

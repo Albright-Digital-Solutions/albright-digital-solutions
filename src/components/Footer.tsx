@@ -29,7 +29,7 @@ export default function Footer() {
                 {BUSINESS.description}
               </p>
               <div className="space-y-1 text-xs text-zinc-500">
-                <p>{BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}</p>
+                <p>Texas-based · Remote consultations available</p>
                 <p>
                   <a href={`tel:${BUSINESS.phone}`} className="hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>
                   {' · '}
@@ -83,11 +83,11 @@ export default function Footer() {
             <div className="md:col-span-2">
               <h3 className="text-[10px] font-bold text-[var(--color-brand-accent)] uppercase tracking-[0.25em] mb-6">Service Areas</h3>
               <ul className="space-y-2 text-sm text-zinc-500">
-                <li>Austin</li>
-                <li>Round Rock</li>
-                <li>Cedar Park</li>
-                <li>Georgetown</li>
-                <li>San Marcos</li>
+                <li>Texas</li>
+                <li>Remote Clients</li>
+                <li>Small Businesses</li>
+                <li>Service Businesses</li>
+                <li>Startups</li>
               </ul>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
             </p>
             <p className="text-xs text-zinc-700">
-              Serving Austin, Round Rock, Cedar Park, Georgetown, San Marcos, and Central Texas.
+              Serving businesses across Texas and remote clients nationwide.
             </p>
           </div>
         </div>

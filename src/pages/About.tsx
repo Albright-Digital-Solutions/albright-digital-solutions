@@ -17,7 +17,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">About {BUSINESS.name}</h1>
           <p className="text-xl text-zinc-400 font-sans">
-            A full-service digital partner in {BUSINESS.address.city}, Texas — building websites, improving local visibility, managing Google Business Profiles, supporting social media, running honest ad campaigns, deploying custom AI agents, and connecting the systems small businesses depend on.
+            A Texas-based digital partner — building websites, improving local visibility, managing Google Business Profiles, supporting social media, running honest ad campaigns, deploying custom AI agents, and connecting the systems small businesses depend on.
           </p>
         </div>
       </section>
@@ -28,13 +28,13 @@ export default function About() {
           <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
             <h2>Our Story</h2>
             <p>
-              {BUSINESS.name} was founded in {BUSINESS.foundingYear} by Jason Albright with a clear mission: eliminate the technical and creative friction that holds local businesses back from competing in the digital economy. Based in {BUSINESS.address.city}, Texas, we saw firsthand how small businesses across Round Rock, Cedar Park, Georgetown, and San Marcos were being underserved by template-based agencies that delivered generic websites with zero SEO value.
+              {BUSINESS.name} was founded in {BUSINESS.foundingYear} by Jason Albright with a clear mission: eliminate the technical and creative friction that holds local businesses back from competing in the digital economy. Based in Texas, we saw firsthand how small businesses were being underserved by template-based agencies that delivered generic websites with zero SEO value.
             </p>
             <p>
               We took a different approach. Every project we take on begins with a strategic foundation — entity-based SEO architecture, structured data markup, and service-area content that actually ranks on Google and gets surfaced by AI answer engines. We don't just build websites that look good; we build digital infrastructure that generates revenue.
             </p>
             <p>
-              Today, {BUSINESS.name} serves businesses across Central Texas with a complete digital support model: custom AI agents, websites and managed care, Google Business Profile management, local SEO/GEO strategy, social media management, paid advertising, content and creative support, CRM setup, booking and payment workflows, professional email, DNS, reporting, and emergency recovery assistance. We are a single-source partner — no fragmented vendors, no communication gaps, no excuses.
+              Today, {BUSINESS.name} serves businesses across Texas and remote clients nationwide with a complete digital support model: custom AI agents, websites and managed care, Google Business Profile management, local SEO/GEO strategy, social media management, paid advertising, content and creative support, CRM setup, booking and payment workflows, professional email, DNS, reporting, and emergency recovery assistance. We are a single-source partner — no fragmented vendors, no communication gaps, no excuses.
             </p>
 
             <div className="my-16 border-l-4 border-[var(--color-brand-accent)] pl-8 py-2">
@@ -112,7 +112,7 @@ export default function About() {
           <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
             <h2>Who We Serve</h2>
             <ul>
-              <li><strong>Small-to-medium business owners</strong> in Austin, Round Rock, Cedar Park, Georgetown, and San Marcos ready to modernize their digital presence and operations.</li>
+              <li><strong>Small-to-medium business owners</strong> in Texas and beyond who are ready to modernize their digital presence and operations.</li>
               <li><strong>Non-technical founders</strong> who need a reliable, highly-capable technical partner to build and maintain their digital infrastructure.</li>
               <li><strong>Startups</strong> seeking scalable web platforms, AI automation, and compelling pitch materials to secure funding and customers.</li>
               <li><strong>Established companies</strong> looking to automate workflows, upgrade their websites, and produce professional marketing content.</li>

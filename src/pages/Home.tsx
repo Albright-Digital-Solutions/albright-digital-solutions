@@ -91,7 +91,7 @@ function HeroSection() {
         {/* Eyebrow */}
         <div className="reveal reveal-delay-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-6 border border-[var(--color-brand-accent)]/15 bg-[var(--color-brand-accent)]/[0.04]">
           <Sparkles size={14} className="text-[var(--color-brand-accent)]" />
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent-light)]">Austin's Premier Digital Agency</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent-light)]">Texas-Based Digital Partner</span>
           <Sparkles size={14} className="text-[var(--color-brand-accent)]" />
         </div>
 
@@ -110,7 +110,7 @@ function HeroSection() {
         {/* Sub */}
         <p className="reveal reveal-delay-4 mt-4 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
           <strong className="text-white font-medium">{BUSINESS.name}</strong> builds high-performing websites and manages the search, social, advertising, and business systems that help small businesses grow across{' '}
-          <span className="text-[var(--color-brand-accent-light)]">Austin, Texas</span>.
+          <span className="text-[var(--color-brand-accent-light)]">Texas and beyond</span>.
         </p>
 
         {/* CTA */}
@@ -163,13 +163,13 @@ export default function Home() {
             <div key={i} className="inline-flex items-center gap-12 px-6">
               {[
                 { icon: <Star size={14} />, text: '5.0 ★ RATED' },
-                { icon: <Shield size={14} />, text: 'AUSTIN, TEXAS' },
+                { icon: <Shield size={14} />, text: 'TEXAS-BASED' },
                 { icon: <Clock size={14} />, text: `EST. ${BUSINESS.foundingYear}` },
                 { icon: <CheckCircle2 size={14} />, text: '50+ PROJECTS' },
                 { icon: <Zap size={14} />, text: 'SEO-FIRST' },
                 { icon: <Bot size={14} />, text: 'AI-POWERED' },
                 { icon: <Star size={14} />, text: '5.0 ★ RATED' },
-                { icon: <Shield size={14} />, text: 'AUSTIN, TEXAS' },
+                { icon: <Shield size={14} />, text: 'TEXAS-BASED' },
                 { icon: <Clock size={14} />, text: `EST. ${BUSINESS.foundingYear}` },
                 { icon: <CheckCircle2 size={14} />, text: '50+ PROJECTS' },
                 { icon: <Zap size={14} />, text: 'SEO-FIRST' },
@@ -285,7 +285,7 @@ export default function Home() {
             Contact {BUSINESS.name} for a free strategy consultation. We'll analyze your digital presence and build a custom roadmap to dominate your market.
           </p>
           <p className="text-zinc-600 text-sm mb-12">
-            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]/60 hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>
+            Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]/60 hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -302,7 +302,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-zinc-600 text-xs mt-12">
-            Proudly serving Austin, Round Rock, Cedar Park, Georgetown, San Marcos, and all of Central Texas.
+            Proudly serving businesses across Texas and remote clients nationwide.
           </p>
         </div>
       </section>

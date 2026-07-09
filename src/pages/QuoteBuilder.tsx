@@ -149,7 +149,7 @@ export default function QuoteBuilder() {
                   </select>
                 </label>
                 <label>Website or Google Profile link<input aria-label="Website or profile link" placeholder="https://..." value={client.website} onChange={(e) => setClient({ ...client, website: e.target.value })} /></label>
-                <label>Primary city / service area<input aria-label="Primary service area" placeholder="Austin, Round Rock, Central Texas…" value={client.location} onChange={(e) => setClient({ ...client, location: e.target.value })} /></label>
+                <label>Primary city / service area<input aria-label="Primary service area" placeholder="Texas, online, or the cities you serve…" value={client.location} onChange={(e) => setClient({ ...client, location: e.target.value })} /></label>
                 <label>Team size
                   <select aria-label="Team size" value={client.teamSize} onChange={(e) => setClient({ ...client, teamSize: e.target.value })}>
                     <option value="">Select one</option>

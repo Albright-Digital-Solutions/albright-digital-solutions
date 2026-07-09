@@ -171,7 +171,7 @@ export default function DigitalInfrastructure() {
           <h2 className="svc-heading">Stop duct-taping your tech together.</h2>
           <p className="svc-body">Let {BUSINESS.name} build it right — and hand you the keys.</p>
           <p className="svc-cta-contact">
-            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
+            Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact" className="svc-cta-btn svc-cta-btn--primary">

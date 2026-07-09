@@ -31,7 +31,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function AiTraining() {
   const schemas = [
-    serviceSchema(SERVICE_NAME, 'Hands-on AI prompt and process training for small business teams in Austin, Texas. We teach your staff to use AI tools effectively so one person can do the work of five.', SERVICE_URL),
+    serviceSchema(SERVICE_NAME, 'Hands-on AI prompt and process training for small business teams in Texas and remote teams nationwide. We teach your staff to use AI tools effectively so one person can do the work of five.', SERVICE_URL),
     faqSchema(faqs),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: SERVICE_NAME, url: SERVICE_URL }]),
   ];
@@ -159,7 +159,7 @@ export default function AiTraining() {
           <h2 className="svc-heading">Ready to make your team 5× more productive?</h2>
           <p className="svc-body">Contact {BUSINESS.name} to schedule a hands-on AI training session for your staff.</p>
           <p className="svc-cta-contact">
-            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
+            Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact" className="svc-cta-btn svc-cta-btn--primary">

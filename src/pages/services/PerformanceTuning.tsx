@@ -31,7 +31,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function PerformanceTuning() {
   const schemas = [
-    serviceSchema(SERVICE_NAME, 'Quarterly digital infrastructure reviews, security patching, performance optimization, and content updates for businesses in Austin and Central Texas.', SERVICE_URL),
+    serviceSchema(SERVICE_NAME, 'Quarterly digital infrastructure reviews, security patching, performance optimization, and content updates for businesses in Texas and remote clients nationwide.', SERVICE_URL),
     faqSchema(faqs),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: SERVICE_NAME, url: SERVICE_URL }]),
   ];
@@ -167,7 +167,7 @@ export default function PerformanceTuning() {
           <h2 className="svc-heading">Stop letting your technology deteriorate.</h2>
           <p className="svc-body">Regular, predictable maintenance keeps your systems sharp, your data secure, and your business running without interruption.</p>
           <p className="svc-cta-contact">
-            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip} · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
+            Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact" className="svc-cta-btn svc-cta-btn--primary">

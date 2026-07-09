@@ -41,24 +41,14 @@ export const BUSINESS = {
   url: 'https://albrightdigitalsolutions.com',
   email: 'jason@albrightdigitalsolutions.com',
   phone: '512-661-4927',
-  address: {
-    street: '100 Congress Ave',
-    city: 'Austin',
-    state: 'TX',
-    zip: '78701',
-    country: 'US',
-  },
-  geo: {
-    lat: 30.2672,
-    lng: -97.7431,
-  },
+  region: 'Texas',
   hours: [
     'Mo-Fr 08:00-18:00',
     'Sa 09:00-14:00',
   ],
   foundingYear: 2023,
   description:
-    'Albright Digital Solutions is a full-service digital agency in Austin, Texas, specializing in custom-built AI agents, AI automation, custom website design and development, local visibility, social media, advertising, video editing, and graphic design for local businesses and startups.',
+    'Albright Digital Solutions is a Texas-based digital agency specializing in custom-built AI agents, AI automation, custom website design and development, local visibility, social media, advertising, video editing, and graphic design for small businesses and startups.',
   sameAs: [
     'https://github.com/Albright-Digital-Solutions',
   ],
@@ -78,19 +68,6 @@ export function localBusinessSchema() {
     email: BUSINESS.email,
     description: BUSINESS.description,
     foundingDate: `${BUSINESS.foundingYear}`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS.address.street,
-      addressLocality: BUSINESS.address.city,
-      addressRegion: BUSINESS.address.state,
-      postalCode: BUSINESS.address.zip,
-      addressCountry: BUSINESS.address.country,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: BUSINESS.geo.lat,
-      longitude: BUSINESS.geo.lng,
-    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -114,11 +91,8 @@ export function localBusinessSchema() {
       worstRating: '1',
     },
     areaServed: [
-      { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-      { '@type': 'City', name: 'Round Rock', containedInPlace: { '@type': 'State', name: 'Texas' } },
-      { '@type': 'City', name: 'Cedar Park', containedInPlace: { '@type': 'State', name: 'Texas' } },
-      { '@type': 'City', name: 'Georgetown', containedInPlace: { '@type': 'State', name: 'Texas' } },
-      { '@type': 'City', name: 'San Marcos', containedInPlace: { '@type': 'State', name: 'Texas' } },
+      { '@type': 'State', name: 'Texas' },
+      { '@type': 'Country', name: 'United States' },
     ],
     priceRange: '$$',
   };
