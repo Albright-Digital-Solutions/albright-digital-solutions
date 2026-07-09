@@ -18,7 +18,7 @@ export default function Footer() {
 
             {/* Brand column */}
             <div className="md:col-span-5 flex flex-col items-center md:items-start">
-              <Link to="/" className="inline-block mb-6 group self-center">
+              <Link to="/" className="inline-block mb-6 group self-center -translate-x-4 md:-translate-x-2">
                 <img
                   src="/Albright_Digital_Solutions_Logo.png"
                   alt="Albright Digital Solutions Logo"
@@ -93,13 +93,19 @@ export default function Footer() {
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-16 pt-8 border-t border-[var(--color-brand-border)]/50 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="mt-16 pt-8 border-t border-[var(--color-brand-border)]/50 flex flex-col items-center gap-5">
+            <div className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-brand-border)]/70 bg-black/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+              <span aria-hidden="true" className="text-base leading-none">🇺🇸</span>
+              <span>Proudly American Owned</span>
+            </div>
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 w-full">
             <p className="text-xs text-zinc-600">
               &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
             </p>
             <p className="text-xs text-zinc-700">
               Serving businesses across Texas and remote clients nationwide.
             </p>
+            </div>
           </div>
         </div>
       </div>
