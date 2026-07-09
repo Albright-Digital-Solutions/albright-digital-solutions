@@ -1,12 +1,19 @@
 import { useMemo, useState } from 'react';
 import { Check, ChevronDown, FileText, Plus, Printer, Send, Trash2 } from 'lucide-react';
-import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
+import SchemaMarkup, { breadcrumbSchema, BUSINESS, faqSchema } from '../components/SchemaMarkup';
 import { money, quoteCatalog } from '../data/quoteCatalog';
 
 const quoteDate = new Date();
 const validUntil = new Date(quoteDate);
 validUntil.setDate(validUntil.getDate() + 30);
 const dateFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const quoteFaqs = [
+  { question: 'Is the custom quote a final contract?', answer: 'No. The quote builder creates a good-faith preliminary estimate to start the conversation. Final pricing is confirmed after scope, accounts, integrations, timelines, and requirements are reviewed.' },
+  { question: 'How long is a quote valid?', answer: 'Quotes generated through the site are valid for 30 days. After that, pricing may need to be refreshed based on scope, availability, platform changes, or third-party costs.' },
+  { question: 'Are advertising spend and third-party software included?', answer: 'No. Advertising spend, domains, Google Workspace, CRM subscriptions, Stripe fees, AI platform usage, and other third-party costs are excluded and paid directly by the client whenever possible.' },
+  { question: 'Can search rankings, Google verification, or advertising results be guaranteed?', answer: 'No. Search rankings, indexing, Google verification, reinstatement, advertising performance, and lead volume cannot be guaranteed. We provide strategy, setup, management, reporting, and guidance, but platforms and market conditions affect outcomes.' },
+  { question: 'What happens after I submit a quote request?', answer: 'We review the selected services and business context, then follow up to confirm scope, priorities, dependencies, and next steps before any final agreement is made.' },
+];
 
 export default function QuoteBuilder() {
   const [selected, setSelected] = useState<string[]>([]);
@@ -74,7 +81,10 @@ export default function QuoteBuilder() {
 
   return (
     <div className="quote-page">
-      <SchemaMarkup schema={breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Build a Quote', url: `${BUSINESS.url}/quote` }])} />
+      <SchemaMarkup schema={[
+        breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Build a Quote', url: `${BUSINESS.url}/quote` }]),
+        faqSchema(quoteFaqs),
+      ]} />
       <section className="quote-hero">
         <div className="quote-shell">
           <span className="quote-kicker">Build Your Plan</span>
@@ -234,6 +244,19 @@ export default function QuoteBuilder() {
           </div>
           {submitState.message && <p className={`quote-submit-message quote-submit-message--${submitState.type}`}>{submitState.message}</p>}
         </aside>
+      </section>
+      <section className="quote-faqs quote-shell">
+        <div className="quote-faqs-head">
+          <span className="quote-kicker">Quote Questions</span>
+          <h2>What to know before you submit.</h2>
+          <p>The quote builder is meant to create a useful starting point, not pressure you into a one-size-fits-all package.</p>
+        </div>
+        <div className="quote-faq-grid">
+          {quoteFaqs.map((faq) => <article key={faq.question}>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </article>)}
+        </div>
       </section>
     </div>
   );
