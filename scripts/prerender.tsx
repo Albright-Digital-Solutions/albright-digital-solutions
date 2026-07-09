@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { AppContent } from '../src/App';
 import { canonicalUrl, DEFAULT_IMAGE, getSeoForPath, seoRoutes, SITE_NAME, SITE_URL } from '../src/data/seo';
+import { serviceFamilies } from '../src/data/serviceFamilies';
 
 const distDir = path.resolve('dist');
 const routes = [...new Set(seoRoutes.map((route) => route.path))];
@@ -74,6 +75,38 @@ async function writeRobots() {
   await writeFile(path.join(distDir, 'robots.txt'), robots, 'utf8');
 }
 
+async function writeLlmsTxt() {
+  const serviceSections = serviceFamilies.map((service) => [
+    `## ${service.navName}`,
+    '',
+    service.intro,
+    '',
+    `URL: ${canonicalUrl(`/services/${service.slug}`)}`,
+    '',
+    'Services:',
+    ...service.services.map((item) => `- ${item.title}: ${item.description}`),
+    ...(service.note ? ['', `Important note: ${service.note}`] : []),
+  ].join('\n')).join('\n\n');
+
+  const llms = `# ${SITE_NAME}\n\n` +
+    `> Texas-based digital partner helping small businesses with websites, Google Business Profile management, local visibility, social media, paid advertising, custom AI agents, creative content, CRM setup, booking, payments, professional email, analytics, reporting, and connected business systems.\n\n` +
+    `Website: ${SITE_URL}\n` +
+    `Contact: jason@albrightdigitalsolutions.com\n` +
+    `Phone: 512-661-4927\n` +
+    `Service area: Texas-based; remote consultations available for clients nationwide.\n` +
+    `Ownership: Proudly American owned.\n\n` +
+    `## Key URLs\n\n` +
+    routes.map((routePath) => `- ${getSeoForPath(routePath).title}: ${canonicalUrl(routePath)}`).join('\n') +
+    `\n\n${serviceSections}\n\n` +
+    `## Policies and positioning\n\n` +
+    `- Google verification, reinstatement, indexing, ranking, advertising results, and lead volume cannot be guaranteed.\n` +
+    `- Advertising spend, domains, Google Workspace, CRM subscriptions, AI platform usage, Stripe processing, and third-party software fees are paid directly by the client whenever possible.\n` +
+    `- Albright Digital Solutions edits client-supplied photos and footage; on-location photography and filming are not included by default.\n` +
+    `- Reporting is included in managed programs so work can be measured and improved.\n`;
+
+  await writeFile(path.join(distDir, 'llms.txt'), llms, 'utf8');
+}
+
 async function main() {
   const template = await readFile(path.join(distDir, 'index.html'), 'utf8');
 
@@ -83,7 +116,8 @@ async function main() {
 
   await writeSitemap();
   await writeRobots();
-  console.log(`Prerendered ${routes.length} routes with SEO metadata, sitemap.xml, and robots.txt.`);
+  await writeLlmsTxt();
+  console.log(`Prerendered ${routes.length} routes with SEO metadata, sitemap.xml, robots.txt, and llms.txt.`);
 }
 
 main().catch((error) => {
