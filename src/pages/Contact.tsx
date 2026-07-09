@@ -1,10 +1,60 @@
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
+import type { FormEvent } from 'react';
+import { useState } from 'react';
 import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: 'Website Design & Development',
+    message: '',
+  });
+  const [submitState, setSubmitState] = useState<{ type: 'idle' | 'success' | 'error'; message: string }>({ type: 'idle', message: '' });
+
   const schemas = [
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Contact', url: `${BUSINESS.url}/contact` }]),
   ];
+
+  const updateForm = (field: keyof typeof form, value: string) => {
+    setForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitState({ type: 'idle', message: 'Sending your message…' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Unable to send your message right now.');
+      }
+
+      setSubmitState({ type: 'success', message: 'Message sent. We will follow up shortly.' });
+      setForm({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: 'Website Design & Development',
+        message: '',
+      });
+    } catch (error) {
+      setSubmitState({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Unable to send your message right now.',
+      });
+    }
+  };
 
   return (
     <div className="w-full">
@@ -91,13 +141,15 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="bg-[var(--color-brand-surface)] p-8 rounded-2xl border border-[var(--color-brand-border)]">
             <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="contact-firstName" className="block text-sm font-medium text-zinc-400 mb-2">First Name</label>
                   <input
                     type="text"
                     id="contact-firstName"
+                    value={form.firstName}
+                    onChange={(event) => updateForm('firstName', event.target.value)}
                     className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors"
                   />
                 </div>
@@ -106,6 +158,8 @@ export default function Contact() {
                   <input
                     type="text"
                     id="contact-lastName"
+                    value={form.lastName}
+                    onChange={(event) => updateForm('lastName', event.target.value)}
                     className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors"
                   />
                 </div>
@@ -116,6 +170,9 @@ export default function Contact() {
                 <input
                   type="email"
                   id="contact-email"
+                  required
+                  value={form.email}
+                  onChange={(event) => updateForm('email', event.target.value)}
                   className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors"
                 />
               </div>
@@ -125,6 +182,8 @@ export default function Contact() {
                 <input
                   type="tel"
                   id="contact-phone"
+                  value={form.phone}
+                  onChange={(event) => updateForm('phone', event.target.value)}
                   className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors"
                 />
               </div>
@@ -133,6 +192,8 @@ export default function Contact() {
                 <label htmlFor="contact-service" className="block text-sm font-medium text-zinc-400 mb-2">Interested Service</label>
                 <select
                   id="contact-service"
+                  value={form.service}
+                  onChange={(event) => updateForm('service', event.target.value)}
                   className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors appearance-none"
                 >
                   <option>Website Design & Development</option>
@@ -155,16 +216,25 @@ export default function Contact() {
                 <textarea
                   id="contact-message"
                   rows={4}
+                  required
+                  value={form.message}
+                  onChange={(event) => updateForm('message', event.target.value)}
                   className="w-full bg-[var(--color-brand-dark)] text-white border border-[var(--color-brand-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--color-brand-accent)] transition-colors resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
+                disabled={submitState.message === 'Sending your message…'}
                 className="w-full flex items-center justify-center gap-2 bg-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-light)] text-zinc-950 font-bold py-4 px-6 rounded-lg transition-colors"
               >
-                Submit Request <Send size={18} />
+                {submitState.message === 'Sending your message…' ? 'Sending…' : 'Submit Request'} <Send size={18} />
               </button>
+              {submitState.message && (
+                <p className={`quote-submit-message quote-submit-message--${submitState.type}`}>
+                  {submitState.message}
+                </p>
+              )}
             </form>
           </div>
 
