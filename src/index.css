@@ -590,6 +590,513 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   ADS THEME OVERRIDES — JULY 2026 CLEANUP
+   Brings quote/contact/services/support pages into the same black-gold system.
+   ═══════════════════════════════════════════════════════════════ */
+.quote-hero--image {
+  padding-block: 7rem 5rem;
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-quote.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 1rem 5rem;
+  border-bottom: 1px solid rgba(229, 159, 43, .22);
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-contact.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-hero::before,
+.quote-hero--image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 30%, rgba(229,159,43,.14), transparent 26rem);
+  pointer-events: none;
+}
+
+.contact-hero > *,
+.quote-hero--image > * {
+  position: relative;
+  z-index: 1;
+}
+
+.services-dark-hero--image {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 45%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.15) 56%),
+    url('/hero-services.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.services-dark-hero--image .family-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.svc-page {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(229, 159, 43, .08), transparent 28rem),
+    linear-gradient(180deg, #050504 0%, #0a0a09 44%, #100f0e 100%);
+  color: #e8e4de;
+}
+
+.svc-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #0a0a09;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 7rem 1.5rem 5rem;
+  border-bottom: 1px solid rgba(229, 159, 43, .22);
+}
+
+.svc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(229,159,43,.14), transparent 26rem),
+    linear-gradient(180deg, transparent 0%, rgba(10,10,9,.2) 45%, #0a0a09 100%);
+  pointer-events: none;
+}
+
+.svc-hero .svc-container {
+  position: relative;
+  z-index: 1;
+}
+
+.svc-hero--workflow {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-workflow-audit.png');
+}
+
+.svc-hero--ai-training {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-ai-training.png');
+}
+
+.svc-hero--performance {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-performance-tuning.png');
+}
+
+.svc-page .svc-section {
+  background: rgba(10, 10, 9, .35);
+}
+
+.svc-page .svc-section--alt {
+  background: #0d0c0b;
+  border-color: rgba(229, 159, 43, .12);
+}
+
+.svc-page .svc-eyebrow,
+.svc-page .svc-hero .svc-eyebrow {
+  color: var(--color-brand-accent);
+}
+
+.svc-page .svc-breadcrumb,
+.svc-page .svc-breadcrumb a,
+.svc-page .svc-cta-contact {
+  color: #a8a29a;
+}
+
+.svc-page .svc-breadcrumb span,
+.svc-page .svc-heading,
+.svc-page .svc-subheading,
+.svc-page .svc-step h3,
+.svc-page .svc-faq-trigger h3,
+.svc-page .svc-cta .svc-heading {
+  color: #ffffff;
+}
+
+.svc-page .svc-body,
+.svc-page .svc-hero .svc-body,
+.svc-page .svc-step p,
+.svc-page .svc-faq-body p,
+.svc-page .svc-cta .svc-body,
+.svc-page .svc-checklist li {
+  color: #aaa59d;
+}
+
+.svc-page .svc-divider {
+  background-color: rgba(229, 159, 43, .18);
+}
+
+.svc-page .svc-stat {
+  color: var(--color-brand-accent-light);
+}
+
+.svc-page .svc-stat-label {
+  color: #8f8b84;
+}
+
+.svc-page .svc-step-num,
+.svc-page .svc-checklist li::before,
+.svc-page .svc-cta-btn--primary,
+.svc-page .svc-hero .svc-cta-btn--primary {
+  background: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+  color: #0a0a09;
+}
+
+.svc-page .svc-cta-btn--primary:hover,
+.svc-page .svc-hero .svc-cta-btn--primary:hover {
+  background: var(--color-brand-accent-light);
+  border-color: var(--color-brand-accent-light);
+}
+
+.svc-page .svc-cta-btn--outline,
+.svc-page .svc-hero .svc-cta-btn--outline {
+  color: #ffffff;
+  border-color: rgba(229, 159, 43, .32);
+}
+
+.svc-page .svc-cta-btn--outline:hover,
+.svc-page .svc-hero .svc-cta-btn--outline:hover {
+  background: rgba(229, 159, 43, .08);
+  border-color: rgba(229, 159, 43, .55);
+}
+
+.svc-page .svc-faq-item {
+  background: #11100e;
+  border-color: rgba(229, 159, 43, .16);
+}
+
+.svc-page .svc-faq-trigger:hover {
+  background: rgba(229, 159, 43, .06);
+}
+
+.svc-page .svc-faq-icon,
+.svc-page .svc-cta-contact a {
+  color: var(--color-brand-accent-light);
+}
+
+.svc-page .svc-cta {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(229,159,43,.09), transparent 36rem),
+    #0d0c0b;
+  border-top: 1px solid rgba(229, 159, 43, .12);
+}
+
+.careers-page {
+  background: var(--color-brand-dark);
+  color: #e8e4de;
+}
+
+.careers-hero {
+  min-height: 620px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-brand-border);
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 45%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.15) 56%),
+    url('/hero-services.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.careers-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-block: 8rem 5rem;
+}
+
+.careers-hero-content > span,
+.career-kicker {
+  color: var(--color-brand-accent);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 800;
+  font-size: .7rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.careers-hero-content h1 {
+  font-family: var(--font-serif);
+  color: white;
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: .98;
+  max-width: 820px;
+  margin-bottom: 1.5rem;
+}
+
+.careers-hero-content p {
+  max-width: 650px;
+  color: #b5b1aa;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.careers-hero-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .9rem 1.15rem;
+  background: var(--color-brand-accent);
+  color: #12110f;
+  border-radius: .55rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.careers-openings {
+  padding-block: 6rem;
+}
+
+.career-card {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 1.5rem;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 1rem;
+  background: #11100e;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.career-card h3 {
+  font-family: var(--font-serif);
+  color: white;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.career-card p,
+.career-info-card p,
+.career-note {
+  color: #aaa59d;
+  line-height: 1.7;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.career-tags span {
+  border: 1px solid rgba(229, 159, 43, .18);
+  color: #c9c1b6;
+  border-radius: 999px;
+  padding: .35rem .7rem;
+  font-size: .75rem;
+}
+
+.career-comp {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid rgba(229, 159, 43, .22);
+  border-radius: .9rem;
+  background: rgba(229, 159, 43, .07);
+  padding: 1.5rem;
+}
+
+.career-comp svg {
+  color: var(--color-brand-accent);
+}
+
+.career-comp strong {
+  color: var(--color-brand-accent-light);
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.career-comp span {
+  color: #b5b1aa;
+  font-size: .9rem;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.career-info-card {
+  border: 1px solid var(--color-brand-border);
+  border-radius: .9rem;
+  background: #11100e;
+  padding: 1.5rem;
+}
+
+.career-info-card i {
+  display: inline-flex;
+  color: var(--color-brand-accent);
+  margin-bottom: 1rem;
+  font-style: normal;
+}
+
+.career-info-card h3 {
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: .6rem;
+}
+
+.career-note {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--color-brand-accent);
+  background: rgba(229,159,43,.06);
+  padding: 1rem 1.25rem;
+}
+
+.career-note strong {
+  color: var(--color-brand-accent-light);
+}
+
+.career-application-section {
+  padding-block: 6rem;
+  border-top: 1px solid rgba(229, 159, 43, .12);
+  background:
+    radial-gradient(circle at 85% 18%, rgba(229,159,43,.08), transparent 26rem),
+    #0a0a09;
+}
+
+.career-application-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(360px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.career-application-grid h2 {
+  font-family: var(--font-serif);
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.career-application-grid p {
+  color: #aaa59d;
+  line-height: 1.75;
+}
+
+.career-application-note {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--color-brand-accent);
+  background: rgba(229,159,43,.06);
+  color: #c9c1b6;
+  padding: 1rem 1.25rem;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.career-form {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid rgba(229, 159, 43, .16);
+  border-radius: 1rem;
+  background: #11100e;
+  padding: 1.5rem;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+}
+
+.career-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.career-form label {
+  display: grid;
+  gap: .45rem;
+  color: #c9c1b6;
+  font-size: .8rem;
+  font-weight: 800;
+}
+
+.career-form input,
+.career-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 210, 117, .14);
+  background: #0a0a09;
+  color: #f6f1e8;
+  border-radius: .65rem;
+  padding: .85rem .9rem;
+  font-size: .92rem;
+  outline: none;
+}
+
+.career-form input[type="file"] {
+  padding: .8rem;
+  color: #aaa59d;
+}
+
+.career-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.career-form input::placeholder,
+.career-form textarea::placeholder {
+  color: #6f685e;
+}
+
+.career-form input:focus,
+.career-form textarea:focus {
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 0 3px rgba(229, 159, 43, .12);
+}
+
+.career-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  border: 0;
+  border-radius: .65rem;
+  background: var(--color-brand-accent);
+  color: #0a0a09;
+  font-weight: 900;
+  padding: .95rem 1rem;
+  cursor: pointer;
+}
+
+.career-form button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .career-card,
+  .career-grid,
+  .career-application-grid,
+  .career-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    SERVICE FAMILIES — BRAND-MATCHED DARK SYSTEM
    ═══════════════════════════════════════════════════════════════ */
 .family-page, .services-dark { background: var(--color-brand-dark); color: #e8e4de; }
@@ -1105,3 +1612,110 @@ body {
   background-color: var(--color-brand-accent-light);
   border-color: var(--color-brand-accent-light);
 }
+
+/* Final ADS theme enforcement. Keep this last so older service-page rules cannot override it. */
+.quote-hero--image {
+  padding-block: 7rem 5rem;
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-quote.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 1rem 5rem;
+  border-bottom: 1px solid rgba(229, 159, 43, .22);
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-contact.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.services-dark-hero--image {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 45%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.15) 56%),
+    url('/hero-services.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.svc-page {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(229, 159, 43, .08), transparent 28rem),
+    linear-gradient(180deg, #050504 0%, #0a0a09 44%, #100f0e 100%);
+  color: #e8e4de;
+}
+
+.svc-page .svc-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #0a0a09;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 7rem 1.5rem 5rem;
+  border-bottom: 1px solid rgba(229, 159, 43, .22);
+}
+
+.svc-page .svc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(229,159,43,.14), transparent 26rem),
+    linear-gradient(180deg, transparent 0%, rgba(10,10,9,.2) 45%, #0a0a09 100%);
+  pointer-events: none;
+}
+
+.svc-page .svc-hero .svc-container {
+  position: relative;
+  z-index: 1;
+}
+
+.svc-page .svc-hero--workflow {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-workflow-audit.png');
+}
+
+.svc-page .svc-hero--ai-training {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-ai-training.png');
+}
+
+.svc-page .svc-hero--performance {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,9,.98) 0%, rgba(10,10,9,.82) 44%, rgba(10,10,9,.28) 100%),
+    linear-gradient(0deg, #0a0a09 0%, rgba(10,10,9,.16) 56%),
+    url('/hero-performance-tuning.png');
+}
+
+.svc-page .svc-section { background: rgba(10, 10, 9, .35); }
+.svc-page .svc-section--alt { background: #0d0c0b; border-color: rgba(229, 159, 43, .12); }
+.svc-page .svc-eyebrow, .svc-page .svc-hero .svc-eyebrow { color: var(--color-brand-accent); }
+.svc-page .svc-breadcrumb, .svc-page .svc-breadcrumb a, .svc-page .svc-cta-contact { color: #a8a29a; }
+.svc-page .svc-breadcrumb span, .svc-page .svc-heading, .svc-page .svc-subheading, .svc-page .svc-step h3, .svc-page .svc-faq-trigger h3, .svc-page .svc-cta .svc-heading { color: #ffffff; }
+.svc-page .svc-body, .svc-page .svc-hero .svc-body, .svc-page .svc-step p, .svc-page .svc-faq-body p, .svc-page .svc-cta .svc-body, .svc-page .svc-checklist li { color: #aaa59d; }
+.svc-page .svc-divider { background-color: rgba(229, 159, 43, .18); }
+.svc-page .svc-stat { color: var(--color-brand-accent-light); }
+.svc-page .svc-stat-label { color: #8f8b84; }
+.svc-page .svc-step-num, .svc-page .svc-checklist li::before, .svc-page .svc-cta-btn--primary, .svc-page .svc-hero .svc-cta-btn--primary { background: var(--color-brand-accent); border-color: var(--color-brand-accent); color: #0a0a09; }
+.svc-page .svc-cta-btn--primary:hover, .svc-page .svc-hero .svc-cta-btn--primary:hover { background: var(--color-brand-accent-light); border-color: var(--color-brand-accent-light); }
+.svc-page .svc-cta-btn--outline, .svc-page .svc-hero .svc-cta-btn--outline { color: #ffffff; border-color: rgba(229, 159, 43, .32); }
+.svc-page .svc-cta-btn--outline:hover, .svc-page .svc-hero .svc-cta-btn--outline:hover { background: rgba(229, 159, 43, .08); border-color: rgba(229, 159, 43, .55); }
+.svc-page .svc-faq-item { background: #11100e; border-color: rgba(229, 159, 43, .16); }
+.svc-page .svc-faq-trigger:hover { background: rgba(229, 159, 43, .06); }
+.svc-page .svc-faq-icon, .svc-page .svc-cta-contact a { color: var(--color-brand-accent-light); }
+.svc-page .svc-cta { background: radial-gradient(circle at 50% 20%, rgba(229,159,43,.09), transparent 36rem), #0d0c0b; border-top: 1px solid rgba(229, 159, 43, .12); }

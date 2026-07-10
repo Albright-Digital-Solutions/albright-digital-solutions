@@ -41,7 +41,7 @@ export default function PerformanceTuning() {
       <SchemaMarkup schema={schemas} />
 
       {/* ── Hero ── */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--performance">
         <div className="svc-container">
           <nav className="svc-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link><span>/</span><span>{SERVICE_NAME}</span>
@@ -76,7 +76,7 @@ export default function PerformanceTuning() {
           <p className="svc-body" style={{ marginBottom: '1.5rem' }}>
             Your digital presence is slowly deteriorating because nobody is maintaining it.
           </p>
-          <p className="svc-body" style={{ fontWeight: 600, color: '#0f172a' }}>
+          <p className="svc-body" style={{ fontWeight: 600, color: 'var(--color-brand-accent-light)' }}>
             It is like buying a truck and never changing the oil. Eventually, it stops running.
           </p>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Bot, Star, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
+import { ArrowRight, Bot, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import SchemaMarkup, { localBusinessSchema, BUSINESS } from '../components/SchemaMarkup';
 import LionZoomTransition from '../components/LionZoomTransition';
@@ -109,7 +109,7 @@ function HeroSection() {
 
         {/* Sub */}
         <p className="reveal reveal-delay-4 mt-4 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
-          <strong className="text-white font-medium">{BUSINESS.name}</strong> builds high-performing websites and manages the search, social, advertising, and business systems that help small businesses grow across{' '}
+          <strong className="text-white font-medium">{BUSINESS.name}</strong> builds high-performing websites, custom AI agents, and manages the search, social, advertising, and business systems that help small businesses grow across{' '}
           <span className="text-[var(--color-brand-accent-light)]">Texas and beyond</span>.
         </p>
 
@@ -162,18 +162,18 @@ export default function Home() {
           {[...Array(2)].map((_, i) => (
             <div key={i} className="inline-flex items-center gap-12 px-6">
               {[
-                { icon: <Star size={14} />, text: '5.0 ★ RATED' },
                 { icon: <Shield size={14} />, text: 'TEXAS-BASED' },
                 { icon: <Clock size={14} />, text: `EST. ${BUSINESS.foundingYear}` },
-                { icon: <CheckCircle2 size={14} />, text: '50+ PROJECTS' },
                 { icon: <Zap size={14} />, text: 'SEO-FIRST' },
                 { icon: <Bot size={14} />, text: 'AI-POWERED' },
-                { icon: <Star size={14} />, text: '5.0 ★ RATED' },
+                { icon: <CheckCircle2 size={14} />, text: 'REPORTING INCLUDED' },
+                { icon: <Sparkles size={14} />, text: 'CUSTOM ROADMAPS' },
                 { icon: <Shield size={14} />, text: 'TEXAS-BASED' },
                 { icon: <Clock size={14} />, text: `EST. ${BUSINESS.foundingYear}` },
-                { icon: <CheckCircle2 size={14} />, text: '50+ PROJECTS' },
                 { icon: <Zap size={14} />, text: 'SEO-FIRST' },
                 { icon: <Bot size={14} />, text: 'AI-POWERED' },
+                { icon: <CheckCircle2 size={14} />, text: 'REPORTING INCLUDED' },
+                { icon: <Sparkles size={14} />, text: 'CUSTOM ROADMAPS' },
               ].map((item, j) => (
                 <span key={j} className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
                   <span className="text-[var(--color-brand-accent)]/60">{item.icon}</span>
@@ -250,9 +250,9 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { num: '01', title: 'SEO-First Architecture', desc: 'Every website is engineered from the ground up with entity-based SEO, structured data, and service-area pages that rank — not just look good. Our sites outperform template-based competitors within 90 days.' },
+                { num: '01', title: 'SEO-First Architecture', desc: 'Every website is engineered from the ground up with entity-based SEO, structured data, and service-area pages designed to support search visibility — not just look good.' },
                 { num: '02', title: 'AI-Powered Workflows', desc: 'We deploy custom AI agents that handle repetitive tasks — from answering customer inquiries to processing data — so you can focus on growing your business. 24/7 automation, zero downtime.' },
-                { num: '03', title: 'Full-Stack Creative', desc: 'Video production, brand identity, media kits — all produced in-house to the highest standard. No fragmented vendor management. One partner, world-class execution across every discipline.' },
+                { num: '03', title: 'Creative Support', desc: 'Brand identity, graphics, media kits, and video editing from client-supplied footage — built to keep your business looking consistent across every customer touchpoint.' },
               ].map((item) => (
                 <div key={item.num} className="glass-card border-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden group">
                   <div className="relative z-10">
@@ -282,7 +282,7 @@ export default function Home() {
             <span className="text-shimmer">unforgettable?</span>
           </h2>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-4 leading-relaxed">
-            Contact {BUSINESS.name} for a free strategy consultation. We'll analyze your digital presence and build a custom roadmap to dominate your market.
+            Contact {BUSINESS.name} for a free strategy consultation. We'll analyze your digital presence and build a custom roadmap to help you compete in your market.
           </p>
           <p className="text-zinc-600 text-sm mb-12">
             Texas-based · Remote consultations available · <a href={`tel:${BUSINESS.phone}`} className="text-[var(--color-brand-accent)]/60 hover:text-[var(--color-brand-accent)] transition-colors">{BUSINESS.phone}</a>

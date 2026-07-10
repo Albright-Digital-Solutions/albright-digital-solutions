@@ -41,7 +41,7 @@ export default function WorkflowAudit() {
       <SchemaMarkup schema={schemas} />
 
       {/* ── Hero ── */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--workflow">
         <div className="svc-container">
           <nav className="svc-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link><span>/</span><span>{SERVICE_NAME}</span>
@@ -76,7 +76,7 @@ export default function WorkflowAudit() {
           <p className="svc-body" style={{ marginBottom: '1.5rem' }}>
             The frustrating part? You know something is wrong. You can feel it. But when every day is a sprint from job to job, there is no time to stop, step back, and figure out where the real problems are.
           </p>
-          <p className="svc-body" style={{ fontWeight: 600, color: '#0f172a' }}>
+          <p className="svc-body" style={{ fontWeight: 600, color: 'var(--color-brand-accent-light)' }}>
             That is exactly what the Workflow Audit is for.
           </p>
         </div>

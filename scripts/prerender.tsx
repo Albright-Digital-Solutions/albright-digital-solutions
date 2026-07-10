@@ -93,6 +93,8 @@ async function writeLlmsTxt() {
     `Website: ${SITE_URL}\n` +
     `Contact: jason@albrightdigitalsolutions.com\n` +
     `Phone: 512-661-4927\n` +
+    `Address: 12705 Saint Mary Dr, Manor, TX 78653\n` +
+    `Hours: Available 24/7\n` +
     `Service area: Texas-based; remote consultations available for clients nationwide.\n` +
     `Ownership: Proudly American owned.\n\n` +
     `## Key URLs\n\n` +
@@ -101,7 +103,7 @@ async function writeLlmsTxt() {
     `## Policies and positioning\n\n` +
     `- Google verification, reinstatement, indexing, ranking, advertising results, and lead volume cannot be guaranteed.\n` +
     `- Advertising spend, domains, Google Workspace, CRM subscriptions, AI platform usage, Stripe processing, and third-party software fees are paid directly by the client whenever possible.\n` +
-    `- Albright Digital Solutions edits client-supplied photos and footage; on-location photography and filming are not included by default.\n` +
+    `- Albright Digital Solutions LLC edits client-supplied photos and footage; on-location photography and filming are not included by default.\n` +
     `- Reporting is included in managed programs so work can be measured and improved.\n`;
 
   await writeFile(path.join(distDir, 'llms.txt'), llms, 'utf8');

@@ -85,7 +85,7 @@ export default function QuoteBuilder() {
         breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Build a Quote', url: `${BUSINESS.url}/quote` }]),
         faqSchema(quoteFaqs),
       ]} />
-      <section className="quote-hero">
+      <section className="quote-hero quote-hero--image">
         <div className="quote-shell">
           <span className="quote-kicker">Build Your Plan</span>
           <h1>Create a custom digital services quote.</h1>

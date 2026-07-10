@@ -33,8 +33,8 @@ export default function Navbar() {
         ? "bg-[var(--color-brand-dark)] shadow-lg shadow-black/20 border-b border-[var(--color-brand-border)]/70"
         : "bg-transparent"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+      <div className="max-w-7xl mx-auto px-[10px]">
+        <div className="flex justify-between h-[146px] items-center">
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
@@ -43,7 +43,7 @@ export default function Navbar() {
                 <img
                   src="/Albright_Digital_Solutions_Logo.png"
                   alt="Albright Digital Solutions Logo"
-                  className="w-24 h-24 object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  className="w-36 h-36 object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Logo glow */}
                 <div className="absolute inset-0 bg-[var(--color-brand-accent)]/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -98,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile Nav — full screen overlay */}
       <div className={cn(
-        "md:hidden fixed left-0 right-0 top-20 bottom-0 z-40 transition-all duration-500",
+        "md:hidden fixed left-0 right-0 top-[146px] bottom-0 z-40 transition-all duration-500",
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"

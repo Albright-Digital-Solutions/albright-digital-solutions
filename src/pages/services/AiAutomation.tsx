@@ -49,7 +49,7 @@ export default function AiAutomation() {
           </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">{SERVICE_NAME}</h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-3xl leading-relaxed mb-8">
-            Albright Digital Solutions deploys custom-built AI agents and intelligent automation systems for small businesses in Texas and remote clients nationwide. Our autonomous agents handle customer support, lead qualification, appointment scheduling, and data processing — operating 24/7 so your team can focus on growth.
+            Albright Digital Solutions LLC deploys custom-built AI agents and intelligent automation systems for small businesses in Texas and remote clients nationwide. Our autonomous agents handle customer support, lead qualification, appointment scheduling, and data processing — operating 24/7 so your team can focus on growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-brand-accent)] text-zinc-950 font-bold rounded-lg hover:bg-[var(--color-brand-accent-light)] transition-colors">

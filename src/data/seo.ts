@@ -1,6 +1,6 @@
 import { serviceFamilies } from './serviceFamilies';
 
-export const SITE_URL = 'https://albrightdigitalsolutions.com';
+export const SITE_URL = 'https://www.albrightdigitalsolutions.com';
 export const SITE_NAME = 'Albright Digital Solutions';
 export const DEFAULT_IMAGE = `${SITE_URL}/Albright_Digital_Solutions_Logo.png`;
 
@@ -20,7 +20,7 @@ const coreRoutes: SeoEntry[] = [
   {
     path: '/about',
     title: 'About Albright Digital Solutions | Texas-Based Digital Agency',
-    description: 'Learn how Albright Digital Solutions helps small businesses modernize websites, local visibility, social media, advertising, automation, CRM, and reporting.',
+    description: 'Learn how Albright Digital Solutions LLC helps small businesses modernize websites, local visibility, social media, advertising, automation, CRM, and reporting.',
   },
   {
     path: '/services',
@@ -30,7 +30,12 @@ const coreRoutes: SeoEntry[] = [
   {
     path: '/contact',
     title: 'Contact Albright Digital Solutions',
-    description: 'Contact Albright Digital Solutions to discuss websites, AI agents, Google visibility, social media, advertising, CRM, and digital business systems.',
+    description: 'Contact Albright Digital Solutions LLC to discuss websites, AI agents, Google visibility, social media, advertising, CRM, and digital business systems.',
+  },
+  {
+    path: '/careers',
+    title: 'Careers | Albright Digital Solutions',
+    description: 'Explore available roles at Albright Digital Solutions LLC, including the current 100% commission sales opportunity.',
   },
   {
     path: '/quote',
@@ -49,8 +54,8 @@ const coreRoutes: SeoEntry[] = [
   },
   {
     path: '/services/video-editing',
-    title: 'Video Editing & Production | Albright Digital Solutions',
-    description: 'Professional video editing and post-production for short-form social videos, business pitch videos, commercials, training content, and brand stories.',
+    title: 'Video Editing | Albright Digital Solutions',
+    description: 'Professional video editing and post-production for client-supplied short-form videos, business pitch videos, commercials, training content, and brand story assets.',
   },
   {
     path: '/services/workflow-audit',

@@ -61,7 +61,7 @@ export default function Contact() {
       <SchemaMarkup schema={schemas} />
 
       {/* Header */}
-      <section className="px-4 py-20 bg-[var(--color-brand-surface)]/30 border-b border-[var(--color-brand-border)]">
+      <section className="contact-hero">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Contact {BUSINESS.name}</h1>
           <p className="text-xl text-zinc-400 font-sans">
@@ -108,6 +108,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-white font-bold mb-1">Service Area</h3>
                   <p className="text-zinc-400">
+                    {BUSINESS.address.formatted}<br />
                     Texas-based<br />
                     Remote consultations available
                   </p>
@@ -121,9 +122,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-white font-bold mb-1">Business Hours</h3>
                   <p className="text-zinc-400">
-                    Monday – Friday: 8:00 AM – 6:00 PM<br />
-                    Saturday: 9:00 AM – 2:00 PM<br />
-                    Sunday: Closed
+                    Available 24/7
                   </p>
                 </div>
               </div>
@@ -133,7 +132,7 @@ export default function Contact() {
             <div className="mt-12 bg-[var(--color-brand-surface)]/50 border border-[var(--color-brand-border)] rounded-xl p-6">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Service Areas</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                We serve businesses across Texas and support remote clients nationwide. No commercial office visits are required — strategy, setup, reporting, and ongoing management can be handled remotely.
+                Albright Digital Solutions operates from {BUSINESS.address.formatted} and serves businesses across Texas with remote support available nationwide. Strategy, setup, reporting, and ongoing management can be handled remotely.
               </p>
             </div>
           </div>
@@ -205,7 +204,7 @@ export default function Contact() {
                   <option>CRM & Business Systems</option>
                   <option>Custom-Built AI Agent</option>
                   <option>AI Agents & Automation</option>
-                  <option>Video Editing & Production</option>
+                  <option>Video Editing</option>
                   <option>Graphic Design & Branding</option>
                   <option>Multiple Services / Full Package</option>
                 </select>

@@ -41,7 +41,7 @@ export default function AiTraining() {
       <SchemaMarkup schema={schemas} />
 
       {/* ── Hero ── */}
-      <section className="svc-hero">
+      <section className="svc-hero svc-hero--ai-training">
         <div className="svc-container">
           <nav className="svc-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link><span>/</span><span>AI Prompt &amp; Process Training</span>
@@ -73,7 +73,7 @@ export default function AiTraining() {
           <p className="svc-body" style={{ marginBottom: '1.5rem' }}>
             Meanwhile, your staff is afraid of it, confused by it, or using it to write emails that sound like they were written by a robot. The result? The most powerful productivity tool in a generation is sitting on the table, untouched.
           </p>
-          <p className="svc-body" style={{ fontWeight: 600, color: '#0f172a' }}>
+          <p className="svc-body" style={{ fontWeight: 600, color: 'var(--color-brand-accent-light)' }}>
             It is not a technology problem. It is a training problem. Most people just need someone to show them.
           </p>
         </div>

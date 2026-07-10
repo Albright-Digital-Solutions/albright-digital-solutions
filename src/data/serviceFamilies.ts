@@ -87,10 +87,10 @@ export const serviceFamilies: ServiceFamily[] = [
     faqs: [
       { question: 'Which social media platforms do you manage?', answer: 'We support Facebook, Instagram, TikTok, and YouTube. The exact posting schedule, creative support, and monitoring level depend on the package selected.' },
       { question: 'Do you create the content or just schedule posts?', answer: 'Both options are available. Some packages focus on planning and scheduling client-supplied assets, while higher-support packages can include graphics, captions, community management, and short-form video editing.' },
-      { question: 'Do you film or take photos for social media?', answer: 'No. We edit and package client-supplied photography or footage, but on-location photography and filming are not included by default.' },
+      { question: 'Do you film or take photos for social media?', answer: 'No. Albright Digital Solutions LLC edits and packages client-supplied photography or footage, but on-location photography and filming are not included by default.' },
       { question: 'Is reporting included with social media management?', answer: 'Yes. Reporting is included so publishing, reach, engagement, audience activity, and lessons from each cycle can be reviewed.' },
     ],
-    note: 'Albright edits client-supplied photography and footage; on-location photography and filming are not included.',
+    note: 'Albright Digital Solutions LLC edits client-supplied photography and footage; on-location photography and filming are not included.',
   },
   {
     slug: 'paid-advertising', navName: 'Paid Advertising', title: 'Paid advertising without hidden incentives.', eyebrow: 'Google Ads & Approved Platforms', image: '/service-paid-advertising.png', imageAlt: 'Dark professional advertising analytics workspace with warm gold performance graphics',

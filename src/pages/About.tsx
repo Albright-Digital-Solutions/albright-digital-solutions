@@ -25,25 +25,45 @@ export default function About() {
       {/* Company Story */}
       <section className="px-4 py-20">
         <div className="max-w-4xl mx-auto space-y-16">
-          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
-            <h2>Our Story</h2>
-            <p>
-              {BUSINESS.name} was founded in {BUSINESS.foundingYear} by Jason Albright with a clear mission: eliminate the technical and creative friction that holds local businesses back from competing in the digital economy. Based in Texas, we saw firsthand how small businesses were being underserved by template-based agencies that delivered generic websites with zero SEO value.
-            </p>
-            <p>
-              We took a different approach. Every project we take on begins with a strategic foundation — entity-based SEO architecture, structured data markup, and service-area content that actually ranks on Google and gets surfaced by AI answer engines. We don't just build websites that look good; we build digital infrastructure that generates revenue.
-            </p>
-            <p>
-              Today, {BUSINESS.name} serves businesses across Texas and remote clients nationwide with a complete digital support model: custom AI agents, websites and managed care, Google Business Profile management, local SEO/GEO strategy, social media management, paid advertising, content and creative support, CRM setup, booking and payment workflows, professional email, DNS, reporting, and emergency recovery assistance. We are a single-source partner — no fragmented vendors, no communication gaps, no excuses.
-            </p>
-
-            <div className="my-16 border-l-4 border-[var(--color-brand-accent)] pl-8 py-2">
-              <p className="text-2xl font-serif italic text-white mb-0">
-                "We don't just write code or design graphics; we execute your vision and make your ideas reality."
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-start">
+            <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
+              <h2>Our Story</h2>
+              <p>
+                {BUSINESS.name} was founded in {BUSINESS.foundingYear} by Jason Albright with a clear mission: eliminate the technical and creative friction that holds local businesses back from competing in the digital economy. Based in Texas, we saw firsthand how small businesses were being underserved by template-based agencies that delivered generic websites with zero SEO value.
               </p>
-              <p className="text-sm text-zinc-500 mt-2">— Jason Albright, Founder</p>
+              <p>
+                We took a different approach. Every project we take on begins with a strategic foundation — entity-based SEO architecture, structured data markup, and service-area content that actually ranks on Google and gets surfaced by AI answer engines. We don't just build websites that look good; we build digital infrastructure that generates revenue.
+              </p>
+              <p>
+                Today, {BUSINESS.name} serves businesses across Texas and remote clients nationwide with a complete digital support model: custom AI agents, websites and managed care, Google Business Profile management, local SEO/GEO strategy, social media management, paid advertising, content and creative support, CRM setup, booking and payment workflows, professional email, DNS, reporting, and emergency recovery assistance. We are a single-source partner — no fragmented vendors, no communication gaps, no excuses.
+              </p>
+
+              <div className="my-16 border-l-4 border-[var(--color-brand-accent)] pl-8 py-2">
+                <p className="text-2xl font-serif italic text-white mb-0">
+                  "We don't just write code or design graphics; we execute your vision and make your ideas reality."
+                </p>
+                <p className="text-sm text-zinc-500 mt-2">— Jason Albright, Founder</p>
+              </div>
             </div>
 
+            <div className="relative mx-auto w-full max-w-sm">
+              <div className="absolute -inset-4 rounded-[2rem] bg-[var(--color-brand-accent)]/10 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-brand-accent)]/30 bg-[var(--color-brand-surface)] p-3 shadow-2xl shadow-black/40">
+                <img
+                  src="/jason-albright-founder.jpg"
+                  alt="Jason Albright, founder of Albright Digital Solutions LLC"
+                  className="aspect-[4/5] w-full rounded-[1.25rem] object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative mt-4 text-center">
+                <p className="text-white font-serif text-xl">Jason Albright</p>
+                <p className="text-[var(--color-brand-accent)] text-xs font-bold uppercase tracking-[0.22em]">Founder · Albright Digital Solutions LLC</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
             <h2>Our Team</h2>
             <p>
               Our team combines deep technical expertise with hands-on creative execution. Jason Albright leads the company as both principal developer and strategic consultant, bringing experience in full-stack web development (Next.js, React, Node.js), AI agent deployment, video post-production, and brand strategy. We maintain a lean, high-output operation that allows us to deliver enterprise-quality work at competitive pricing accessible to small and mid-sized businesses.
@@ -51,7 +71,9 @@ export default function About() {
             <p>
               We also collaborate with a trusted network of specialized contractors across Texas for projects requiring additional bandwidth — including professional videographers, copywriters, and UI/UX designers. This hybrid model ensures every project gets expert-level execution without the overhead of a bloated agency.
             </p>
+          </div>
 
+          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-p:text-zinc-300">
             <h2>Our Credentials</h2>
           </div>
 

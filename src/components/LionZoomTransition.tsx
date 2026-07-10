@@ -180,7 +180,7 @@ export default function LionZoomTransition() {
     <div
       className="fixed inset-0 overflow-hidden bg-[#050404]"
       style={{ zIndex: 100, opacity: handoffOpacity }}
-      aria-label="Albright Digital Solutions cinematic introduction"
+      aria-label="Albright Digital Solutions LLC cinematic introduction"
     >
       <div
         className="absolute inset-0 transition-opacity duration-700"

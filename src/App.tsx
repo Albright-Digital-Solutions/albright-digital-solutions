@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
 import AiAutomation from './pages/services/AiAutomation';
 import WebDesign from './pages/services/WebDesign';
 import VideoEditing from './pages/services/VideoEditing';
@@ -28,7 +29,7 @@ export function AppContent() {
         className="flex flex-col min-h-screen bg-[var(--color-brand-dark)] text-zinc-300"
       >
         <Navbar />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-[146px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -42,6 +43,7 @@ export function AppContent() {
             <Route path="/services/performance-tuning" element={<PerformanceTuning />} />
             <Route path="/services/:slug" element={<ServiceFamily />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/quote" element={<QuoteBuilder />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
