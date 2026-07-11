@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Users, Target, Lightbulb } from 'lucide-react';
-import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
+import SchemaMarkup, { breadcrumbSchema, BUSINESS, localBusinessSchema, personSchema } from '../components/SchemaMarkup';
 import { serviceFamilies } from '../data/serviceFamilies';
 
 export default function About() {
   const schemas = [
+    localBusinessSchema(),
+    personSchema(),
     breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'About Us', url: `${BUSINESS.url}/about` }]),
   ];
 

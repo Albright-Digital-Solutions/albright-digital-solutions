@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import SchemaMarkup, { localBusinessSchema, BUSINESS } from '../components/SchemaMarkup';
+import SchemaMarkup, { localBusinessSchema, BUSINESS, offerCatalogSchema, websiteSchema } from '../components/SchemaMarkup';
 import LionZoomTransition from '../components/LionZoomTransition';
 import { serviceFamilies } from '../data/serviceFamilies';
 
@@ -177,7 +177,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <SchemaMarkup schema={localBusinessSchema()} />
+      <SchemaMarkup schema={[localBusinessSchema(), websiteSchema(), offerCatalogSchema(serviceFamilies)]} />
 
       <BusinessVerificationSummary />
 

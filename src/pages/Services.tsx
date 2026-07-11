@@ -1,6 +1,6 @@
 import { ArrowRight, Bot, ClipboardCheck, GraduationCap, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SchemaMarkup, { breadcrumbSchema, BUSINESS } from '../components/SchemaMarkup';
+import SchemaMarkup, { breadcrumbSchema, BUSINESS, offerCatalogSchema } from '../components/SchemaMarkup';
 import { serviceFamilies } from '../data/serviceFamilies';
 
 const advisory = [
@@ -12,7 +12,10 @@ const advisory = [
 
 export default function Services() {
   return <div className="services-dark">
-    <SchemaMarkup schema={breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Services', url: `${BUSINESS.url}/services` }])} />
+    <SchemaMarkup schema={[
+      breadcrumbSchema([{ name: 'Home', url: BUSINESS.url }, { name: 'Services', url: `${BUSINESS.url}/services` }]),
+      offerCatalogSchema(serviceFamilies),
+    ]} />
     <section className="services-dark-hero services-dark-hero--image"><div className="family-shell"><span>Our Services</span><h1>One digital partner. A system built around your business.</h1><p>Choose a focused project or an ongoing partnership across custom AI agents, websites, local visibility, social media, advertising, content, and connected operations.</p><Link to="/quote">Build a Custom Quote <ArrowRight size={18} /></Link></div></section>
     <section className="family-shell services-family-list">
       {serviceFamilies.map((service, index) => <Link to={`/services/${service.slug}`} className="services-family-row" key={service.slug}>

@@ -63,6 +63,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: 'About Us', path: '/about' },
+                  { name: 'Business Information', path: '/business-profile' },
                   { name: 'Contact', path: '/contact' },
                   { name: 'Build a Quote', path: '/quote' },
                   { name: 'Careers', path: '/careers' },

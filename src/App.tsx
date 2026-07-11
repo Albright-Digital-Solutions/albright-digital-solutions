@@ -9,6 +9,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import BusinessProfile from './pages/BusinessProfile';
 import AiAutomation from './pages/services/AiAutomation';
 import WebDesign from './pages/services/WebDesign';
 import VideoEditing from './pages/services/VideoEditing';
@@ -43,6 +44,7 @@ export function AppContent() {
             <Route path="/services/performance-tuning" element={<PerformanceTuning />} />
             <Route path="/services/:slug" element={<ServiceFamily />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/business-profile" element={<BusinessProfile />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/quote" element={<QuoteBuilder />} />
             <Route path="*" element={<Navigate to="/" replace />} />

@@ -33,6 +33,11 @@ const coreRoutes: SeoEntry[] = [
     description: 'Contact Albright Digital Solutions LLC to discuss websites, AI agents, Google visibility, social media, advertising, CRM, and digital business systems.',
   },
   {
+    path: '/business-profile',
+    title: 'Business Information | Albright Digital Solutions LLC',
+    description: 'Official business information for Albright Digital Solutions LLC, including address, phone, email, hours, service area, founder, and core digital services.',
+  },
+  {
     path: '/careers',
     title: 'Careers | Albright Digital Solutions',
     description: 'Explore available roles at Albright Digital Solutions LLC, including the current 100% commission sales opportunity.',
