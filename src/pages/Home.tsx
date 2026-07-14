@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Shield, Clock, CheckCircle2, Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import SchemaMarkup, { localBusinessSchema, BUSINESS, offerCatalogSchema, websiteSchema } from '../components/SchemaMarkup';
-import LionZoomTransition from '../components/LionZoomTransition';
 import { serviceFamilies } from '../data/serviceFamilies';
 
 function useCardSpotlight(ref: React.RefObject<HTMLDivElement | null>) {
@@ -22,10 +21,6 @@ function useCardSpotlight(ref: React.RefObject<HTMLDivElement | null>) {
   }, [ref]);
 }
 
-/**
- * HeroSection — Fades in from pure white to create a seamless
- * transition from the Pilgrim's Progress whiteout.
- */
 function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [fadeProgress, setFadeProgress] = useState(0);
@@ -182,12 +177,7 @@ export default function Home() {
       <BusinessVerificationSummary />
 
       {/* ════════════════════════════════════════════════════════════
-          CINEMATIC INTRO — Automatically zooms through the gate once per session
-          ════════════════════════════════════════════════════════════ */}
-      <LionZoomTransition />
-
-      {/* ════════════════════════════════════════════════════════════
-          HERO SECTION — starts white, fades into view for seamless transition
+          HERO SECTION
           ════════════════════════════════════════════════════════════ */}
       <HeroSection />
 
