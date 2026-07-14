@@ -130,42 +130,6 @@ function HeroSection() {
   );
 }
 
-function BusinessVerificationSummary() {
-  return (
-    <section className="business-verification-summary" aria-label="Business verification details">
-      <div>
-        <p className="business-verification-kicker">Business Information</p>
-        <h2>Albright Digital Solutions</h2>
-        <p>
-          Albright Digital Solutions is a Texas-based digital agency serving small businesses with custom websites,
-          Google Business Profile support, local visibility, social media, paid advertising, custom AI agents,
-          content, creative support, and connected business systems.
-        </p>
-      </div>
-      <address>
-        <strong>Address</strong>
-        <span>{BUSINESS.address.formatted}</span>
-      </address>
-      <div>
-        <strong>Phone</strong>
-        <a href={`tel:${BUSINESS.phone}`}>{BUSINESS.phone}</a>
-      </div>
-      <div>
-        <strong>Email</strong>
-        <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
-      </div>
-      <div>
-        <strong>Website</strong>
-        <a href={BUSINESS.url}>{BUSINESS.url.replace('https://', '')}</a>
-      </div>
-      <div>
-        <strong>Hours</strong>
-        <span>Available 24/7</span>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
   const gridRef = useRef<HTMLDivElement>(null);
   useCardSpotlight(gridRef);
@@ -173,8 +137,6 @@ export default function Home() {
   return (
     <div className="w-full">
       <SchemaMarkup schema={[localBusinessSchema(), websiteSchema(), offerCatalogSchema(serviceFamilies)]} />
-
-      <BusinessVerificationSummary />
 
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION
